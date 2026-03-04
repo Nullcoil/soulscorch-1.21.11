@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "soulscorch:block/soul_stone",
+    "side": "soulscorch:block/soul_zol_side",
+    "top": "soulscorch:block/soul_zol"
+  }
+}

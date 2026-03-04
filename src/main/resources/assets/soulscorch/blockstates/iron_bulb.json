@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "lit=false,powered=false": {
+      "model": "soulscorch:block/iron_bulb"
+    },
+    "lit=false,powered=true": {
+      "model": "soulscorch:block/iron_bulb_powered"
+    },
+    "lit=true,powered=false": {
+      "model": "soulscorch:block/iron_bulb_lit"
+    },
+    "lit=true,powered=true": {
+      "model": "soulscorch:block/iron_bulb_lit_powered"
+    }
+  }
+}

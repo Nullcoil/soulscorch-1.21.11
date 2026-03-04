@@ -1,0 +1,6 @@
+{
+  "parent": "soulscorch:block/glarynx",
+  "textures": {
+    "up": "soulscorch:block/glarynx_top_seeing"
+  }
+}

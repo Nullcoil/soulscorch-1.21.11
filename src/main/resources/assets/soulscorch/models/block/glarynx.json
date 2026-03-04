@@ -1,0 +1,26 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "soulscorch:block/glarynx_side",
+    "down": "soulscorch:block/glarynx_bottom",
+    "up": "soulscorch:block/glarynx_top_sleepy",
+    "north": "soulscorch:block/glarynx_side",
+    "east": "soulscorch:block/glarynx_side",
+    "south": "soulscorch:block/glarynx_side",
+    "west": "soulscorch:block/glarynx_side"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 12, 16],
+      "faces": {
+        "down": {"texture": "#down", "cullface": "down"},
+        "up": {"texture": "#up", "cullface": "up", "rotation":  180},
+        "north": {"texture": "#north", "cullface": "north"},
+        "south": {"texture": "#south", "cullface": "south"},
+        "west": {"texture": "#west", "cullface": "west"},
+        "east": {"texture": "#east", "cullface": "east"}
+      }
+    }
+  ]
+}

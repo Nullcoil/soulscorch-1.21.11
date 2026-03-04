@@ -1,0 +1,24 @@
+package net.nullcoil.soulscorch.block.effect;
+
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.Mob;
+import net.nullcoil.soulscorch.Soulscorch;
+
+public class ModEffects {
+    public static final Holder<MobEffect> CAT_BUFF = registerEffect("cat_buff", new BlankEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+    public static final Holder<MobEffect> SOULSCORCH = registerEffect("soulscorch", new SoulscorchEffect(MobEffectCategory.HARMFUL, 0x00ffff));
+    public static final Holder<MobEffect> SOUL_RENDER = registerEffect("soul_render", new SoulRenderEffect(MobEffectCategory.BENEFICIAL, 0x00ff88));
+
+    private static Holder<MobEffect> registerEffect(String string, MobEffect mobEffect) {
+        return Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, string), mobEffect);
+    }
+
+    public static void register() {
+        Soulscorch.LOGGER.info("Registering Mod Effects for " + Soulscorch.MOD_ID);
+    }
+}
