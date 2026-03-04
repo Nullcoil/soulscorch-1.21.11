@@ -10,6 +10,8 @@ import net.nullcoil.soulscorch.block.ModBlocks;
 import net.nullcoil.soulscorch.entity.ModEntities;
 import net.nullcoil.soulscorch.entity.client.blazt.BlaztModel;
 import net.nullcoil.soulscorch.entity.client.blazt.BlaztRenderer;
+import net.nullcoil.soulscorch.entity.client.soulless.SoullessModel;
+import net.nullcoil.soulscorch.entity.client.soulless.SoullessRenderer;
 import net.nullcoil.soulscorch.screen.ModScreenHandlers;
 import net.nullcoil.soulscorch.screen.SoulBrewingStandScreen;
 
@@ -21,5 +23,7 @@ public class SoulscorchClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(BlaztModel.BLAZT, BlaztModel::createBodyLayer);
         EntityRendererRegistry.register(ModEntities.BLAZT, BlaztRenderer::new);
         EntityRendererRegistry.register(ModEntities.SOUL_CHARGE_PROJECTILE, net.minecraft.client.renderer.entity.ThrownItemRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(SoullessModel.SOULLESS, SoullessModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.SOULLESS, SoullessRenderer::new);
     }
 }

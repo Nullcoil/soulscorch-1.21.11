@@ -1,4 +1,4 @@
-package net.nullcoil.soulscorch.block.effect;
+package net.nullcoil.soulscorch.effect;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -11,7 +11,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Blocks;
 import net.nullcoil.soulscorch.item.ModItems;
 
 public class SoulscorchEffect extends MobEffect {

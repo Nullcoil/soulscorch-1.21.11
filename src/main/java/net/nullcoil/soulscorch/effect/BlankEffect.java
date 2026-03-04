@@ -1,4 +1,4 @@
-package net.nullcoil.soulscorch.block.effect;
+package net.nullcoil.soulscorch.effect;
 
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.effect.MobEffect;

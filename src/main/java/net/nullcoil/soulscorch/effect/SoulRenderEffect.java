@@ -1,4 +1,4 @@
-package net.nullcoil.soulscorch.block.effect;
+package net.nullcoil.soulscorch.effect;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.InstantenousMobEffect;

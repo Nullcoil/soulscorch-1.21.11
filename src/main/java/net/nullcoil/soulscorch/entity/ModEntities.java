@@ -11,6 +11,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.monster.Ghast;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.entity.ai.BlaztEntity;
+import net.nullcoil.soulscorch.entity.ai.SoullessEntity;
 import net.nullcoil.soulscorch.entity.projectile.SoulChargeProjectile;
 
 public class ModEntities {
@@ -34,8 +35,18 @@ public class ModEntities {
                     .build(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "soul_charge")))
     );
 
+    public static final EntityType<SoullessEntity> SOULLESS = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "soulless"),
+            EntityType.Builder.of(SoullessEntity::new, MobCategory.MONSTER)
+                    .sized(0.6f, 1.95f)
+                    .clientTrackingRange(10)
+                    .build(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "soulless")))
+    );
+
     public static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(BLAZT, BlaztEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(SOULLESS, SoullessEntity.createAttributes());
     }
 
     public static void register() {

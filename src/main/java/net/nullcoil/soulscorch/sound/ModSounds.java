@@ -15,6 +15,18 @@ public class ModSounds {
     public static final SoundEvent BLAZT_SHOOTING = registerSoundEvent("blazt_shooting");
     public static final SoundEvent BLAZT_SOUL_CHARGE = registerSoundEvent("blazt_soul_charge");
 
+    public static final SoundEvent SOULLESS_AMBIENT = registerSoundEvent("soulless_ambient");
+    public static final SoundEvent SOULLESS_DEATH = registerSoundEvent("soulless_death");
+    public static final SoundEvent SOULLESS_HURT = registerSoundEvent("soulless_hurt");
+    public static final SoundEvent SOULLESS_ANGRY = registerSoundEvent("soulless_angry");
+    public static final SoundEvent SOULLESS_WAKE = registerSoundEvent("soulless_wake");
+
+    public static final SoundEvent RESTLESS_ANGER = registerSoundEvent("restless_anger");
+    public static final SoundEvent RESTLESS_DEATH = registerSoundEvent("restless_death");
+    public static final SoundEvent RESTLESS_HURT = registerSoundEvent("restless_hurt");
+
+    public static final SoundEvent ETHEL_SPIN = registerSoundEvent("ethel_spin");
+
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, name);
         return Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id));

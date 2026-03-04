@@ -9,8 +9,10 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.FireChargeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SpawnEggItem;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.block.ModBlocks;
+import net.nullcoil.soulscorch.entity.ModEntities;
 
 import java.util.function.Function;
 
@@ -32,6 +34,17 @@ public class ModItems {
     );
     public static final Item SOULWARD_TOTEM = registerItem(
             "soulward_totem", SoulwardTotemItem::new, new Item.Properties()
+    );
+
+    public static final Item SOULLESS_SPAWN_EGG = registerItem(
+            "soulless_spawn_egg",
+            SpawnEggItem::new,
+            new Item.Properties().spawnEgg(ModEntities.SOULLESS)
+    );
+
+    public static final Item BLAZT_SPAWN_EGG = registerItem(
+            "blazt_spawn_egg",
+            SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.BLAZT)
     );
 
 
@@ -68,6 +81,10 @@ public class ModItems {
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.accept(ModBlocks.CERULEAN_FROGLIGHT);
+        });
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(entries -> {
+            entries.accept(SOULLESS_SPAWN_EGG);
+            entries.accept(BLAZT_SPAWN_EGG);
         });
 
         Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);

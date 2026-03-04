@@ -1,6 +1,5 @@
 package net.nullcoil.soulscorch.entity.ai;
 
-import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -13,7 +12,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -29,7 +27,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.nullcoil.soulscorch.Soulscorch;
-import net.nullcoil.soulscorch.entity.projectile.SoulChargeProjectile;
 import net.nullcoil.soulscorch.sound.ModSounds;
 
 import java.util.EnumSet;
@@ -284,7 +281,7 @@ public class BlaztEntity extends Mob implements Enemy {
                     } else {
                         target.hurt(this.blazt.damageSources().mobAttack(this.blazt), (float) this.blazt.getAttributeValue(Attributes.ATTACK_DAMAGE));
                         target.addEffect(new net.minecraft.world.effect.MobEffectInstance(
-                                net.nullcoil.soulscorch.block.effect.ModEffects.SOULSCORCH, 200, 0));
+                                net.nullcoil.soulscorch.effect.ModEffects.SOULSCORCH, 200, 0));
 
                         this.blazt.setBullrushing(false);
                         this.blazt.setDeltaMovement(0.0D, 0.75D, 0.0D); // 2. Jump up after a successful hit

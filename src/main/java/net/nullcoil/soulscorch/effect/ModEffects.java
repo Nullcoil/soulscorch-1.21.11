@@ -1,4 +1,4 @@
-package net.nullcoil.soulscorch.block.effect;
+package net.nullcoil.soulscorch.effect;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -6,7 +6,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.entity.Mob;
 import net.nullcoil.soulscorch.Soulscorch;
 
 public class ModEffects {
