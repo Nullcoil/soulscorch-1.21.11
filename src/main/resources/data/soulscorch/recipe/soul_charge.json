@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "soulscorch:blazt_powder",
+    "minecraft:gunpowder",
+    "#minecraft:coals"
+  ],
+  "result": {
+    "id": "soulscorch:soul_charge",
+    "count": 3
+  }
+}

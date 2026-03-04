@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sgs",
+    "ggg",
+    " g "
+  ],
+  "key": {
+    "s": "soulscorch:soul_shard",
+    "g": "minecraft:gold_ingot"
+  },
+  "result": {
+    "id": "soulscorch:soulward_totem",
+    "count": 1
+  }
+}

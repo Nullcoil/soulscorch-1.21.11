@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:slime_ball",
+    "soulscorch:blazt_powder"
+  ],
+  "result": {
+    "id": "soulscorch:soul_cream",
+    "count": 1
+  }
+}
