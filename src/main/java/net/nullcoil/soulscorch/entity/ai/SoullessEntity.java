@@ -140,9 +140,24 @@ public class SoullessEntity extends ZombifiedPiglin implements NeutralMob {
             if (activity == SoullessActivity.PASSIVE) {
                 this.neutralAnimationState.stop();
                 this.hostileAnimationState.stop();
-                this.passiveAnimationState.startIfStopped(this.tickCount);
                 this.neutralTwitchState = -1;
-                this.twitchTimer = 0;
+
+                // 1. Random Timer Logic for Passive Twitching
+                if (this.twitchTimer > 0) {
+                    this.twitchTimer--;
+                } else {
+                    // 20% chance to twitch when the timer is up
+                    if (this.random.nextFloat() < 0.2f) {
+                        // We use .start() to FORCE the animation to restart from frame 0
+                        this.passiveAnimationState.start(this.tickCount);
+                        // Wait 5 to 7 seconds before considering another twitch
+                        this.twitchTimer = 100 + this.random.nextInt(40);
+                    } else {
+                        // Failed the chance, check again in 1 second
+                        this.passiveAnimationState.stop();
+                        this.twitchTimer = 20;
+                    }
+                }
 
             } else if (activity == SoullessActivity.NEUTRAL) {
                 this.passiveAnimationState.stop();
@@ -166,6 +181,9 @@ public class SoullessEntity extends ZombifiedPiglin implements NeutralMob {
                 this.neutralAnimationState.stop();
                 this.neutralTwitchState = -1;
                 this.twitchTimer = 0;
+
+                // Hostile animation is usually a continuous state (like arm raising),
+                // so startIfStopped is correct here!
                 this.hostileAnimationState.startIfStopped(this.tickCount);
             }
         }

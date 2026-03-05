@@ -33,7 +33,7 @@ public class ModItems {
             "soul_shard", Item::new, new Item.Properties()
     );
     public static final Item SOULWARD_TOTEM = registerItem(
-            "soulward_totem", SoulwardTotemItem::new, new Item.Properties()
+            "soulward_totem", SoulwardTotemItem::new, new Item.Properties().stacksTo(1)
     );
 
     public static final Item SOULLESS_SPAWN_EGG = registerItem(
@@ -45,6 +45,11 @@ public class ModItems {
     public static final Item BLAZT_SPAWN_EGG = registerItem(
             "blazt_spawn_egg",
             SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.BLAZT)
+    );
+
+    public static final Item RESTLESS_SPAWN_EGG = registerItem(
+            "restless_spawn_egg",
+            SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.RESTLESS)
     );
 
 
@@ -85,6 +90,7 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(entries -> {
             entries.accept(SOULLESS_SPAWN_EGG);
             entries.accept(BLAZT_SPAWN_EGG);
+            entries.accept(RESTLESS_SPAWN_EGG);
         });
 
         Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);

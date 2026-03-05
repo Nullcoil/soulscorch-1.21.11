@@ -11,6 +11,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.monster.Ghast;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.entity.ai.BlaztEntity;
+import net.nullcoil.soulscorch.entity.ai.RestlessEntity;
 import net.nullcoil.soulscorch.entity.ai.SoullessEntity;
 import net.nullcoil.soulscorch.entity.projectile.SoulChargeProjectile;
 
@@ -22,7 +23,7 @@ public class ModEntities {
             EntityType.Builder.of(BlaztEntity::new, MobCategory.MONSTER)
                     .sized(3.0f, 3.0f)
                     .clientTrackingRange(10)
-                    .build(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "blazt")))
+                    .build(key("blazt"))
     );
 
     public static final EntityType<SoulChargeProjectile> SOUL_CHARGE_PROJECTILE = Registry.register(
@@ -32,7 +33,7 @@ public class ModEntities {
                     .sized(0.3125F, 0.3125F) // Standard fireball hitbox
                     .clientTrackingRange(4)
                     .updateInterval(10)
-                    .build(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "soul_charge")))
+                    .build(key("soul_charge"))
     );
 
     public static final EntityType<SoullessEntity> SOULLESS = Registry.register(
@@ -41,12 +42,26 @@ public class ModEntities {
             EntityType.Builder.of(SoullessEntity::new, MobCategory.MONSTER)
                     .sized(0.6f, 1.95f)
                     .clientTrackingRange(10)
-                    .build(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "soulless")))
+                    .build(key("soulless"))
     );
+
+    public static final EntityType<RestlessEntity> RESTLESS = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "restless"),
+            EntityType.Builder.of(RestlessEntity::new, MobCategory.MONSTER)
+                    .sized(1.6f, 1.4f)
+                    .clientTrackingRange(10)
+                    .build(key("restless"))
+    );
+
+    private static ResourceKey<EntityType<?>> key(String path) {
+        return ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, path));
+    }
 
     public static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(BLAZT, BlaztEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(SOULLESS, SoullessEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(RESTLESS, RestlessEntity.createAttributes());
     }
 
     public static void register() {

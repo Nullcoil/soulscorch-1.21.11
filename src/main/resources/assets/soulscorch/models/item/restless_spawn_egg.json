@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "soulscorch:item/restless_spawn_egg"
+  }
+}
