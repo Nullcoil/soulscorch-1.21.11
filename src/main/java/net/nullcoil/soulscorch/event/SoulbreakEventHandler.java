@@ -35,7 +35,7 @@ public class SoulbreakEventHandler {
         if (!state.is(ModTags.Blocks.SOULBASED_BLOCKS)) return;
 
         // 1.21 uses .hasEffect() instead of .hasStatusEffect()
-        if (player.hasEffect(ModEffects.CAT_BUFF)) return;
+        if (player.hasEffect(ModEffects.CAT_BUFF) || player.hasEffect(ModEffects.DOG_BUFF)) return;
 
         Set<SoullessEntity> visited = new HashSet<>();
         Queue<SoullessEntity> queue = new LinkedList<>();

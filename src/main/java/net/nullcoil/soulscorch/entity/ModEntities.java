@@ -11,6 +11,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.monster.Ghast;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.entity.ai.BlaztEntity;
+import net.nullcoil.soulscorch.entity.ai.HytodomEntity;
 import net.nullcoil.soulscorch.entity.ai.RestlessEntity;
 import net.nullcoil.soulscorch.entity.ai.SoullessEntity;
 import net.nullcoil.soulscorch.entity.projectile.SoulChargeProjectile;
@@ -54,6 +55,15 @@ public class ModEntities {
                     .build(key("restless"))
     );
 
+    public static final EntityType<HytodomEntity> HYTODOM = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "hytodom"),
+            EntityType.Builder.of(HytodomEntity::new, MobCategory.CREATURE)
+                    .sized(0.95f, 2.25f)
+                    .clientTrackingRange(10)
+                    .build(key("hytodom"))
+    );
+
     private static ResourceKey<EntityType<?>> key(String path) {
         return ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, path));
     }
@@ -62,6 +72,7 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(BLAZT, BlaztEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(SOULLESS, SoullessEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(RESTLESS, RestlessEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(HYTODOM, HytodomEntity.createAttributes());
     }
 
     public static void register() {

@@ -20,7 +20,7 @@ public class SoulscorchEffect extends MobEffect {
 
     @Override
     public void onMobHurt(ServerLevel serverLevel, LivingEntity livingEntity, int i, DamageSource damageSource, float f) {
-        if (f <= 0.0f || livingEntity.hasEffect(ModEffects.CAT_BUFF)) {
+        if (f <= 0.0f || (livingEntity.hasEffect(ModEffects.CAT_BUFF) || livingEntity.hasEffect(ModEffects.DOG_BUFF))) {
             super.onMobHurt(serverLevel, livingEntity, i, damageSource, f);
             return;
         }

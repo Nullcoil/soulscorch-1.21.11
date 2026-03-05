@@ -9,7 +9,8 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.nullcoil.soulscorch.Soulscorch;
 
 public class ModEffects {
-    public static final Holder<MobEffect> CAT_BUFF = registerEffect("cat_buff", new BlankEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+    public static final Holder<MobEffect> CAT_BUFF = registerEffect("cat_buff", new CompanionEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+    public static final Holder<MobEffect> DOG_BUFF = registerEffect("dog_buff", new CompanionEffect(MobEffectCategory.BENEFICIAL, 0x000000));
     public static final Holder<MobEffect> SOULSCORCH = registerEffect("soulscorch", new SoulscorchEffect(MobEffectCategory.HARMFUL, 0x00ffff));
     public static final Holder<MobEffect> SOUL_RENDER = registerEffect("soul_render", new SoulRenderEffect(MobEffectCategory.BENEFICIAL, 0x00ff88));
 

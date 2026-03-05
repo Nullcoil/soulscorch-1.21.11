@@ -11,6 +11,8 @@ import net.nullcoil.soulscorch.entity.ModEntities;
 import net.nullcoil.soulscorch.entity.ai.RestlessEntity;
 import net.nullcoil.soulscorch.entity.client.blazt.BlaztModel;
 import net.nullcoil.soulscorch.entity.client.blazt.BlaztRenderer;
+import net.nullcoil.soulscorch.entity.client.jellyfish.JellyfishModel;
+import net.nullcoil.soulscorch.entity.client.jellyfish.JellyfishRenderer;
 import net.nullcoil.soulscorch.entity.client.restless.RestlessManeModel;
 import net.nullcoil.soulscorch.entity.client.restless.RestlessModel;
 import net.nullcoil.soulscorch.entity.client.restless.RestlessRenderer;
@@ -33,9 +35,12 @@ public class SoulscorchClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(SoullessModel.SOULLESS, SoullessModel::createBodyLayer);
         EntityRendererRegistry.register(ModEntities.SOULLESS, SoullessRenderer::new);
 
-        net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry.registerModelLayer(RestlessModel.RESTLESS, RestlessModel::createBodyLayer);
-        net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry.registerModelLayer(RestlessManeModel.MANE_LAYER, RestlessManeModel::createManeLayer);
-        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(ModEntities.RESTLESS, RestlessRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(RestlessModel.RESTLESS, RestlessModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(RestlessManeModel.MANE_LAYER, RestlessManeModel::createManeLayer);
+        EntityRendererRegistry.register(ModEntities.RESTLESS, RestlessRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(JellyfishModel.HYTODOM, JellyfishModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.HYTODOM, JellyfishRenderer::new);
 
     }
 }

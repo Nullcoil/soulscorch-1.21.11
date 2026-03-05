@@ -52,6 +52,11 @@ public class ModItems {
             SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.RESTLESS)
     );
 
+    public static final Item HYTODOM_SPAWN_EGG = registerItem(
+            "hytodom_spawn_egg",
+            SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.HYTODOM)
+    );
+
 
     // 2. The completed helper method
     private static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
@@ -91,6 +96,7 @@ public class ModItems {
             entries.accept(SOULLESS_SPAWN_EGG);
             entries.accept(BLAZT_SPAWN_EGG);
             entries.accept(RESTLESS_SPAWN_EGG);
+            entries.accept(HYTODOM_SPAWN_EGG);
         });
 
         Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);

@@ -2,6 +2,7 @@ package net.nullcoil.soulscorch.entity.ai;
 
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -12,6 +13,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -30,6 +32,7 @@ import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.sound.ModSounds;
 
 import java.util.EnumSet;
+import java.util.Random;
 
 public class BlaztEntity extends Mob implements Enemy {
     // Synced Data so the client knows when to change textures/animations
@@ -159,6 +162,8 @@ public class BlaztEntity extends Mob implements Enemy {
                 this.shootAnimationState.stop();
             }
         }
+
+        this.spawnSmokeParticles();
     }
 
     // --- State Getters & Setters ---
@@ -178,6 +183,47 @@ public class BlaztEntity extends Mob implements Enemy {
     protected SoundEvent getHurtSound(DamageSource damageSource) { return ModSounds.BLAZT_HURT; }
     @Override
     protected SoundEvent getDeathSound() { return ModSounds.BLAZT_DEATH; }
+
+    private void spawnSmokeParticles() {
+        if (this.level().isClientSide()) {
+            double centerX = this.getX();
+            double centerY = this.getY();
+            double centerZ = this.getZ();
+
+            RandomSource random = this.getRandom();
+
+            for(int i = 0; i < random.nextInt(2) + 2; i++) {
+                double offsetX = random.nextDouble() - .5;
+                double offsetZ = random.nextDouble() - .5;
+
+                double velocityX = (random.nextDouble() - .5) * .02;
+                double velocityY = -.2 - random.nextDouble() * .05;
+                double velocityZ = (random.nextDouble() - 0.5) * .02;
+
+                if(this.isBullrushing()) {
+                    this.level().addParticle(
+                            ParticleTypes.SOUL_FIRE_FLAME,
+                            centerX + offsetX,
+                            centerY,
+                            centerZ + offsetZ,
+                            velocityX,
+                            velocityY,
+                            velocityZ
+                    );
+                } else {
+                    this.level().addParticle(
+                            ParticleTypes.LARGE_SMOKE,
+                            centerX + offsetX,
+                            centerY,
+                            centerZ + offsetZ,
+                            velocityX,
+                            velocityY,
+                            velocityZ
+                    );
+                }
+            }
+        }
+    }
 
     // --- Custom Move Control (Hovering logic) ---
     static class BlaztMoveControl extends MoveControl {
