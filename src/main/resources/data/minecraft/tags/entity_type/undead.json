@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "soulscorch:blazt"
+    "soulscorch:blazt",
+    "soulscorch:soulless",
+    "soulscorch:restless",
+    "soulscorch:soulborne_cat",
+    "soulscorch:soulborne_wolf"
   ]
 }

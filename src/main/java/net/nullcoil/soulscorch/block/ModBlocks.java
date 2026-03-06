@@ -12,10 +12,12 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.block.custom.IronBulbBlock;
 import net.nullcoil.soulscorch.block.custom.SoulBrewingStandBlock;
+import net.nullcoil.soulscorch.block.custom.SoulSlagBlock;
 
 import java.util.function.Function;
 
@@ -54,7 +56,19 @@ public class ModBlocks {
                     .sound(SoundType.FROGLIGHT)
     );
 
-    // 2. The proper helper method that safely handles ResourceKeys for modern Minecraft
+    public static final Block SOUL_SLAG_BLOCK = registerBlock(
+            "soul_slag",
+            SoulSlagBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(Blocks.SOUL_FIRE.defaultMapColor())
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .lightLevel(state -> 2)
+                    .strength(.5f)
+                    .isValidSpawn((state, getter, pos, type)-> type.fireImmune())
+                    .hasPostProcess(Blocks::always)
+    );
+
     private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
         // Build the Identifier
         Identifier id = Identifier.tryBuild(Soulscorch.MOD_ID, name);

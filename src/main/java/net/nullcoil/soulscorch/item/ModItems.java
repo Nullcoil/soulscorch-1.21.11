@@ -88,12 +88,14 @@ public class ModItems {
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
             entries.accept(ModBlocks.SOUL_BREWING_STAND);
+            entries.accept(ModBlocks.IRON_BULB_BLOCK);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(entries -> {
             entries.accept(ModBlocks.IRON_BULB_BLOCK);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.accept(ModBlocks.CERULEAN_FROGLIGHT);
+            entries.accept(ModBlocks.SOUL_SLAG_BLOCK);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(entries -> {
             entries.accept(SOULLESS_SPAWN_EGG);

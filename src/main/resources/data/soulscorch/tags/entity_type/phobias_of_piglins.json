@@ -1,8 +1,15 @@
 {
-  "replace": false,
   "values": [
+    "minecraft:zombified_piglin",
+    "minecraft:zombie",
+    "minecraft:zoglin",
+    "minecraft:husk",
+    "minecraft:drowned",
+    "minecraft:zombie_horse",
     "soulscorch:soulless",
     "soulscorch:restless",
-    "soulscorch:blazt"
+    "soulscorch:soulborne_cat",
+    "soulscorch:soulborne_wolf",
+    "soulscorch:hytodom"
   ]
 }

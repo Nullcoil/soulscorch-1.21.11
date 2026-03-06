@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "minecraft:soul_fire",
     "minecraft:soul_torch",
@@ -8,6 +7,8 @@
     "minecraft:soul_campfire",
     "minecraft:soul_sand",
     "minecraft:soul_soil",
+    "soulscorch:soul_slag",
+    "soulscorch:iron_bulb",
     "soulscorch:soul_brewing_stand"
   ]
 }
