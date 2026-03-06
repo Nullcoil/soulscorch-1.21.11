@@ -1,6 +1,7 @@
 package net.nullcoil.soulscorch;
 
 import net.fabricmc.api.ModInitializer;
+import net.nullcoil.soulscorch.alchemy.ModAlchemy;
 import net.nullcoil.soulscorch.block.ModBlockEntities;
 import net.nullcoil.soulscorch.block.ModBlocks;
 import net.nullcoil.soulscorch.effect.ModEffects;
@@ -30,6 +31,7 @@ public class Soulscorch implements ModInitializer {
 		ModSounds.register();
 		ModLootTables.register();
 		ModEntitySpawns.register();
+		ModAlchemy.register();
 
 		LOGGER.info("Soulscorch initialized successfully");
 	}

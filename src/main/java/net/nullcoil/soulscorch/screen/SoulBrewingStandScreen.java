@@ -52,7 +52,7 @@ public class SoulBrewingStandScreen extends AbstractContainerScreen<SoulBrewingS
         // Removed the cast here too
         int o = this.menu.getBrewingTicks();
         if (o > 0) {
-            int p = (int)(28.0F * (1.0F - (float)o / 400.0F));
+            int p = (int)(28.0F * (1.0F - (float)o / 200.0F));
             if (p > 0) {
                 guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, BREW_PROGRESS_SPRITE, 9, 28, 0, 0, k + 97, l + 16, 9, p);
             }
