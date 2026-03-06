@@ -5,12 +5,23 @@ import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.model.animal.feline.CatModel;
+import net.minecraft.client.model.animal.feline.OcelotModel;
+import net.minecraft.client.model.geom.LayerDefinitions;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.client.renderer.entity.WolfRenderer;
+import net.minecraft.resources.Identifier;
 import net.nullcoil.soulscorch.block.ModBlocks;
 import net.nullcoil.soulscorch.entity.ModEntities;
 import net.nullcoil.soulscorch.entity.ai.RestlessEntity;
 import net.nullcoil.soulscorch.entity.client.blazt.BlaztModel;
 import net.nullcoil.soulscorch.entity.client.blazt.BlaztRenderer;
+import net.nullcoil.soulscorch.entity.client.companion.SoulCatRenderer;
+import net.nullcoil.soulscorch.entity.client.companion.SoulWolfRenderer;
 import net.nullcoil.soulscorch.entity.client.jellyfish.JellyfishModel;
 import net.nullcoil.soulscorch.entity.client.jellyfish.JellyfishRenderer;
 import net.nullcoil.soulscorch.entity.client.restless.RestlessManeModel;
@@ -41,6 +52,9 @@ public class SoulscorchClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(JellyfishModel.HYTODOM, JellyfishModel::createBodyLayer);
         EntityRendererRegistry.register(ModEntities.HYTODOM, JellyfishRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.SOULBORNE_CAT, SoulCatRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SOULBORNE_WOLF, SoulWolfRenderer::new);
 
     }
 }

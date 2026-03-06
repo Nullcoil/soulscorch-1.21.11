@@ -10,10 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.monster.Ghast;
 import net.nullcoil.soulscorch.Soulscorch;
-import net.nullcoil.soulscorch.entity.ai.BlaztEntity;
-import net.nullcoil.soulscorch.entity.ai.HytodomEntity;
-import net.nullcoil.soulscorch.entity.ai.RestlessEntity;
-import net.nullcoil.soulscorch.entity.ai.SoullessEntity;
+import net.nullcoil.soulscorch.entity.ai.*;
 import net.nullcoil.soulscorch.entity.projectile.SoulChargeProjectile;
 
 public class ModEntities {
@@ -64,6 +61,21 @@ public class ModEntities {
                     .build(key("hytodom"))
     );
 
+    public static final EntityType<SoulborneCatEntity> SOULBORNE_CAT = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "soulborne_cat"),
+            EntityType.Builder.of(SoulborneCatEntity::new, MobCategory.CREATURE)
+                    .sized(0.6F, 0.7F)
+                    .build(key("soulborne_cat"))
+    );
+    public static final EntityType<SoulborneWolfEntity> SOULBORNE_WOLF = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "soulborne_wolf"),
+            EntityType.Builder.of(SoulborneWolfEntity::new, MobCategory.CREATURE)
+                    .sized(0.6F, 0.85F)
+                    .build(key("soulborne_wolf"))
+    );
+
     private static ResourceKey<EntityType<?>> key(String path) {
         return ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, path));
     }
@@ -73,6 +85,8 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(SOULLESS, SoullessEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(RESTLESS, RestlessEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(HYTODOM, HytodomEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(SOULBORNE_CAT, SoulborneCatEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(SOULBORNE_WOLF, SoulborneWolfEntity.createAttributes());
     }
 
     public static void register() {

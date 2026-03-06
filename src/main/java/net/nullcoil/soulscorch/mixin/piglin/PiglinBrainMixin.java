@@ -1,4 +1,4 @@
-package net.nullcoil.soulscorch.mixin;
+package net.nullcoil.soulscorch.mixin.piglin;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;

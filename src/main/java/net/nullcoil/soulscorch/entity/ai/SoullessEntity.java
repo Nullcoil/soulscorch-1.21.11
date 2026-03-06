@@ -43,6 +43,7 @@ public class SoullessEntity extends ZombifiedPiglin implements NeutralMob {
     @Nullable
     private EntityReference<LivingEntity> angryAt;
     private int angerTime = 1200;
+    private int watchTime = 1800;
     private static final List<EquipmentSlot> EQUIPMENT_INIT_ORDER;
     private static final UniformInt ANGER_TIME_RANGE;
 
@@ -192,6 +193,13 @@ public class SoullessEntity extends ZombifiedPiglin implements NeutralMob {
         else if (this.level() instanceof ServerLevel serverLevel) {
             switch(getActivity()) {
                 case NEUTRAL -> {
+                    if(watchTime > 0) {
+                        watchTime--;
+                    }
+                    if(watchTime <= 0) {
+                        setActivity(SoullessActivity.PASSIVE);
+                        watchTime = 1800;
+                    }
                     if(this.getTarget() != null && !this.hasLineOfSight(this.getTarget())) {
                         setActivity(SoullessActivity.PASSIVE);
                     }

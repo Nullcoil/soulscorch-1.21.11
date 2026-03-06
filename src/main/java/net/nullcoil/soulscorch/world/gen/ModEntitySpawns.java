@@ -32,7 +32,7 @@ public class ModEntitySpawns {
                 MobCategory.MONSTER, ModEntities.RESTLESS, 20, 1, 1);
 
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(Biomes.SOUL_SAND_VALLEY),
-                MobCategory.MONSTER, ModEntities.HYTODOM, 20, 2, 5);
+                MobCategory.MONSTER, ModEntities.HYTODOM, 1, 1, 3);
 
 
         // =========================================
@@ -49,6 +49,6 @@ public class ModEntitySpawns {
                 Heightmap.Types.MOTION_BLOCKING, RestlessEntity::checkMobSpawnRules);
 
         SpawnPlacements.register(ModEntities.HYTODOM, SpawnPlacementTypes.NO_RESTRICTIONS,
-                Heightmap.Types.MOTION_BLOCKING, JellyfishEntity::checkMobSpawnRules);
+                Heightmap.Types.MOTION_BLOCKING, JellyfishEntity::checkJellyfishSpawnRules);
     }
 }

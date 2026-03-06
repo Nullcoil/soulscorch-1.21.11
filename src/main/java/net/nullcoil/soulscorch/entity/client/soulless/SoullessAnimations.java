@@ -52,7 +52,7 @@ public class SoullessAnimations {
                             new Keyframe(0.08343333f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
                                     AnimationChannel.Interpolations.LINEAR))).build();
 
-    public static final AnimationDefinition NEUTRAL_HEAD_TWITCH1 = AnimationDefinition.Builder.withLength(0.125f)
+    public static final AnimationDefinition NEUTRAL_HEAD_TWITCH1 = AnimationDefinition.Builder.withLength(0.16766666f) // Extended length to match the double-twitch
             .addAnimation("head",
                     new AnimationChannel(AnimationChannel.Targets.ROTATION,
                             new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
@@ -62,6 +62,9 @@ public class SoullessAnimations {
                             new Keyframe(0.08343333f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
                                     AnimationChannel.Interpolations.LINEAR),
                             new Keyframe(0.125f, KeyframeAnimations.degreeVec(5f, -22.5f, 0f),
+                                    AnimationChannel.Interpolations.LINEAR),
+                            // Added the missing reset keyframe!
+                            new Keyframe(0.16766666f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
                                     AnimationChannel.Interpolations.LINEAR))).build();
 
     public static final AnimationDefinition NEUTRAL_ARM_TWITCH = AnimationDefinition.Builder.withLength(0.16766666f)

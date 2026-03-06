@@ -14,10 +14,7 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.ClipContext;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
@@ -62,6 +59,8 @@ public class JellyfishEntity extends Monster {
                 .add(Attributes.ATTACK_DAMAGE, 2d)
                 .add(Attributes.GRAVITY, 0d);
     }
+
+
 
     @Override
     public void registerGoals() { // initGoals mapping

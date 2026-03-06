@@ -25,6 +25,7 @@
   "item.soulscorch.cerulean_froglight": "Cerulean Froglight",
 
   "effect.soulscorch.cat_buff": "Cat Buff",
+  "effect.soulscorch.dog_buff": "Dog Buff",
   "effect.soulscorch.soul_render": "Soul Rendering",
   "effect.soulscorch.soulscorch": "Soulscorched",
   "effect.soulscorch.mania": "Mania",
@@ -36,13 +37,15 @@
 
   "item.soulscorch.blazt_spawn_egg": "Blazt Spawn Egg",
   "item.soulscorch.restless_spawn_egg": "Restless Spawn Egg",
-  "item.soulscorch.soulborne_cat_spawn_egg": "Soulborne Cat Spawn Egg",
+  "item.soulscorch.soulcat_spawn_egg": "Soulborne Cat Spawn Egg",
+  "item.soulscorch.soulwolf_spawn_egg": "Soulborne Wolf Spawn Egg",
   "item.soulscorch.soulless_spawn_egg": "Soulless Spawn Egg",
   "item.soulscorch.hytodom_spawn_egg": "Hytodom Spawn Egg",
 
   "entity.soulscorch.blazt": "Blazt",
   "entity.soulscorch.restless": "Restless",
   "entity.soulscorch.soulborne_cat": "Soulborne Cat",
+  "entity.soulscorch.soulborne_wolf": "Soulborne Wolf",
   "entity.soulscorch.soulless": "Soulless",
   "entity.soulscorch.hytodom": "Hytodom",
 
@@ -70,5 +73,5 @@
   "tag.item.soulscorch.soulstuff": "Soulstuff",
 
   "death.attack.mania": "%1$s thought themselves to death",
-  "death.attack.mania.player": "%1$s thought themselves to while death trying to escape %2$s"
+  "death.attack.mania.player": "%1$s thought themselves to death whist trying to escape %2$s"
 }

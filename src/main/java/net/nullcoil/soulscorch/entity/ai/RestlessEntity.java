@@ -207,7 +207,7 @@ public class RestlessEntity extends Monster implements Enemy, HoglinBase {
                         );
                         chargeDirection = interceptPoint.subtract(mob.position()).normalize();
 
-                        timer = 60; // 3 seconds charge
+                        timer = 30; // 1.5 seconds charge
                         state = State.CHARGING;
                     }
                     break;

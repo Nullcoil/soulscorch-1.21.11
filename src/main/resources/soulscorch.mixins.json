@@ -3,9 +3,13 @@
   "package": "net.nullcoil.soulscorch.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "PiglinBrainMixin",
-    "PiglinSpawnMixin",
-    "PlayerDamageMixin"
+    "PlayerDamageMixin",
+    "cat.CatEntityMixin",
+    "cat.CatInvoker",
+    "piglin.PiglinBrainMixin",
+    "piglin.PiglinSpawnMixin",
+    "wolf.WolfEntityMixin",
+    "wolf.WolfInvoker"
   ],
   "injectors": {
     "defaultRequire": 1

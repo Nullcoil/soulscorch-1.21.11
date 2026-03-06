@@ -35,28 +35,31 @@ public class ModItems {
     public static final Item SOULWARD_TOTEM = registerItem(
             "soulward_totem", SoulwardTotemItem::new, new Item.Properties().stacksTo(1)
     );
-
     public static final Item SOULLESS_SPAWN_EGG = registerItem(
             "soulless_spawn_egg",
             SpawnEggItem::new,
             new Item.Properties().spawnEgg(ModEntities.SOULLESS)
     );
-
     public static final Item BLAZT_SPAWN_EGG = registerItem(
             "blazt_spawn_egg",
             SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.BLAZT)
     );
-
     public static final Item RESTLESS_SPAWN_EGG = registerItem(
             "restless_spawn_egg",
             SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.RESTLESS)
     );
-
     public static final Item HYTODOM_SPAWN_EGG = registerItem(
             "hytodom_spawn_egg",
             SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.HYTODOM)
     );
-
+    public static final Item SOULCAT_SPAWN_EGG = registerItem(
+            "soulcat_spawn_egg",
+            SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.SOULBORNE_CAT)
+    );
+    public static final Item SOULWOLF_SPAWN_EGG = registerItem(
+            "soulwolf_spawn_egg",
+            SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.SOULBORNE_WOLF)
+    );
 
     // 2. The completed helper method
     private static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
@@ -97,6 +100,8 @@ public class ModItems {
             entries.accept(BLAZT_SPAWN_EGG);
             entries.accept(RESTLESS_SPAWN_EGG);
             entries.accept(HYTODOM_SPAWN_EGG);
+            entries.accept(SOULCAT_SPAWN_EGG);
+            entries.accept(SOULWOLF_SPAWN_EGG);
         });
 
         Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);
