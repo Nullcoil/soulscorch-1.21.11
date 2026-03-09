@@ -11,6 +11,8 @@ import net.nullcoil.soulscorch.damage.ModDamageTypes;
 public class ModEvents {
 
     public static void register() {
+        SoulbreakEventHandler.register();
+        CatharsisTickHandler.register();
 
         // 1. The Death Check: Run every tick to see if Corruption >= Max HP
         ServerTickEvents.END_SERVER_TICK.register(server -> {
@@ -24,7 +26,6 @@ public class ModEvents {
                     if (corruptionAttr.getValue() >= maxHealthAttr.getValue()) {
 
                         // Grab our custom damage type!
-                        // If they were recently hit by a mob, we pass that mob in so we get the "...fighting %2$s" message
                         DamageSource source = player.getLastHurtByMob() != null
                                 ? player.damageSources().source(ModDamageTypes.CORRUPTION_DEATH, player.getLastHurtByMob())
                                 : player.damageSources().source(ModDamageTypes.CORRUPTION_DEATH);
@@ -36,20 +37,24 @@ public class ModEvents {
             }
         });
 
-        // 2. The Respawn Punishment: Set Corruption to (Max HP - 1)
+        // 2. The Respawn Punishment: Set Corruption to (Max HP - 1) ONLY on Corruption Death
         ServerPlayerEvents.COPY_FROM.register((oldPlayer, newPlayer, alive) -> {
-            // "alive" is false if they died. If it's true, they just returned from the End dimension.
             if (!alive) {
+                AttributeInstance oldMaxHealth = oldPlayer.getAttribute(Attributes.MAX_HEALTH);
+                AttributeInstance oldCorruption = oldPlayer.getAttribute(ModAttributes.CORRUPTION);
+
                 AttributeInstance newMaxHealth = newPlayer.getAttribute(Attributes.MAX_HEALTH);
                 AttributeInstance newCorruption = newPlayer.getAttribute(ModAttributes.CORRUPTION);
 
-                if (newMaxHealth != null && newCorruption != null) {
-                    // Set their corruption so they spawn with exactly 1 health point (half a heart)
-                    double punishingCorruption = newMaxHealth.getValue() - 1.0;
-                    newCorruption.setBaseValue(punishingCorruption);
+                if (oldMaxHealth != null && oldCorruption != null && newMaxHealth != null && newCorruption != null) {
 
-                    // Force their current health to 1.0 to match
-                    newPlayer.setHealth(1.0F);
+                    // Check if the old body specifically died to the corruption limit
+                    if (oldCorruption.getValue() >= oldMaxHealth.getValue()) {
+                        // Punish them
+                        double punishingCorruption = newMaxHealth.getValue() - 1.0;
+                        newCorruption.setBaseValue(punishingCorruption);
+                        newPlayer.setHealth(1.0F);
+                    }
                 }
             }
         });
