@@ -23,17 +23,17 @@ public class GhostPepperItem extends BlockItem {
 
         if (!level.isClientSide() && entity instanceof Player player) {
 
-            player.hurt(player.damageSources().onFire(), 1.0F);
+            player.hurt(player.damageSources().onFire(), 1f);
             AttributeInstance corruptionAttr = player.getAttribute(ModAttributes.CORRUPTION);
 
             if (corruptionAttr != null) {
                 double currentCorruption = corruptionAttr.getBaseValue();
 
-                if (currentCorruption > 0.0D) {
+                if (currentCorruption > 0d) {
                     RandomSource random = player.getRandom();
                     double cleanseAmount = random.nextInt(3) + 1;
 
-                    double newCorruption = Math.max(0.0D, currentCorruption - cleanseAmount);
+                    double newCorruption = Math.max(0d, currentCorruption - cleanseAmount);
                     corruptionAttr.setBaseValue(newCorruption);
                 }
             }
