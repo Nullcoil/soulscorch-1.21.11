@@ -37,6 +37,7 @@ public class SoulscorchClient implements ClientModInitializer {
     public void onInitializeClient() {
         MenuScreens.register(ModScreenHandlers.SOUL_BREWING_STAND, SoulBrewingStandScreen::new);
         BlockRenderLayerMap.putBlock(ModBlocks.SOUL_BREWING_STAND, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.GHOST_PEPPER_SHRUB, ChunkSectionLayer.CUTOUT);
 
         EntityModelLayerRegistry.registerModelLayer(BlaztModel.BLAZT, BlaztModel::createBodyLayer);
         EntityRendererRegistry.register(ModEntities.BLAZT, BlaztRenderer::new);

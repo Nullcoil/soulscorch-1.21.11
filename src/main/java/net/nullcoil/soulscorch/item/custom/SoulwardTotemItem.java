@@ -1,4 +1,4 @@
-package net.nullcoil.soulscorch.item;
+package net.nullcoil.soulscorch.item.custom;
 
 import net.fabricmc.fabric.api.item.v1.EnchantingContext;
 import net.minecraft.core.Holder;
@@ -6,6 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.nullcoil.soulscorch.item.ModItems;
 
 public class SoulwardTotemItem extends Item {
     public SoulwardTotemItem(Properties properties) {

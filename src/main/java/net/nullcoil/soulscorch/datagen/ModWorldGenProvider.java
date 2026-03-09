@@ -1,0 +1,28 @@
+package net.nullcoil.soulscorch.datagen;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.nullcoil.soulscorch.Soulscorch;
+
+import java.util.concurrent.CompletableFuture;
+
+public class ModWorldGenProvider extends FabricDynamicRegistryProvider {
+    public ModWorldGenProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(output, registriesFuture);
+    }
+
+    @Override
+    protected void configure(HolderLookup.Provider registries, Entries entries) {
+        // We use the provider to look up the registry, then add all to entries
+        // This avoids the 'RegistryLookup' vs 'Reference' type variable mismatch
+        registries.lookup(Registries.CONFIGURED_FEATURE).ifPresent(entries::addAll);
+        registries.lookup(Registries.PLACED_FEATURE).ifPresent(entries::addAll);
+    }
+
+    @Override
+    public String getName() {
+        return "Soulscorch World Gen";
+    }
+}

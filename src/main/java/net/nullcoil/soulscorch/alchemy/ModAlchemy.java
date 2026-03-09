@@ -6,6 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -15,6 +16,7 @@ import net.nullcoil.soulscorch.item.ModItems;
 
 public class ModAlchemy {
     public static final Holder<Potion> SOUL_RENDERING;
+    public static final Holder<Potion> SOUL_RENDERING_STRONG;
 
     private static Holder<Potion> register(String path, Potion potion) {
         return Registry.registerForHolder(BuiltInRegistries.POTION, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, path), potion);
@@ -25,7 +27,13 @@ public class ModAlchemy {
                 new Potion(
                         "soul_rendering",
                         new MobEffectInstance[]{
-                                new MobEffectInstance(ModEffects.SOUL_RENDER, 1)
+                                new MobEffectInstance(ModEffects.SOUL_RENDER, 1, 0)
+                        }));
+        SOUL_RENDERING_STRONG = register("soul_rendering_strong",
+                new Potion(
+                        "soul_rendering_strong",
+                        new MobEffectInstance[]{
+                                new MobEffectInstance(ModEffects.SOUL_RENDER, 1, 1)
                         }));
     }
 
@@ -37,6 +45,14 @@ public class ModAlchemy {
                     Potions.AWKWARD,
                     Ingredient.of(ModItems.SOUL_CREAM),
                     SOUL_RENDERING
+            );
+        });
+
+        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+            builder.registerPotionRecipe(
+                    SOUL_RENDERING,
+                    Ingredient.of(Items.GLOWSTONE_DUST),
+                    SOUL_RENDERING_STRONG
             );
         });
     }

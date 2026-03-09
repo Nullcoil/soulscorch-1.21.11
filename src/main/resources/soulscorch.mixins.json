@@ -3,6 +3,8 @@
   "package": "net.nullcoil.soulscorch.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "FoodDataMixin",
+    "LivingEntityMixin",
     "PlayerDamageMixin",
     "cat.CatEntityMixin",
     "cat.CatInvoker",
@@ -16,5 +18,8 @@
   },
   "overwrites": {
     "requireAnnotations": true
-	}
+  },
+  "client": [
+    "GuiMixin"
+  ]
 }

@@ -6,14 +6,20 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.FireChargeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.level.block.Block;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.block.ModBlocks;
 import net.nullcoil.soulscorch.entity.ModEntities;
+import net.nullcoil.soulscorch.item.custom.CandiedGhostPepperItem;
+import net.nullcoil.soulscorch.item.custom.GhostPepperItem;
+import net.nullcoil.soulscorch.item.custom.SoulwardTotemItem;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class ModItems {
@@ -61,16 +67,41 @@ public class ModItems {
             SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.SOULBORNE_WOLF)
     );
 
+    public static final Item GHOST_PEPPER = registerItem("ghost_pepper",
+            ModBlocks.GHOST_PEPPER_SHRUB, // <-- Pass the shrub block here!
+            GhostPepperItem::new,
+            new Item.Properties().food(
+                    new FoodProperties.Builder()
+                            .nutrition(2)
+                            .saturationModifier(0.2f)
+                            .alwaysEdible()
+                            .build()
+            ));
+    public static final Item CANDIED_GHOST_PEPPER = registerItem("candied_ghost_pepper",
+            CandiedGhostPepperItem::new, new Item.Properties().food(
+                    new FoodProperties.Builder()
+                            .nutrition(8)
+                            .saturationModifier(.2f)
+                            .alwaysEdible()
+                            .build())
+            );
+
     // 2. The completed helper method
     private static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         // Build the Identifier
         Identifier id = Identifier.tryBuild(Soulscorch.MOD_ID, name);
-
-        // Create the ResourceKey
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, id);
 
-        // Inject the ID into the properties, then create the item using the factory
         Item item = factory.apply(properties.setId(itemKey));
+        return Registry.register(BuiltInRegistries.ITEM, itemKey, item);
+    }
+
+    private static Item registerItem(String name, Block block, BiFunction<Block, Item.Properties, Item> factory, Item.Properties properties) {
+        Identifier id = Identifier.tryBuild(Soulscorch.MOD_ID, name);
+        ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, id);
+
+        // Applies both the block and the modified properties to the constructor
+        Item item = factory.apply(block, properties.setId(itemKey));
         return Registry.register(BuiltInRegistries.ITEM, itemKey, item);
     }
 
@@ -104,6 +135,10 @@ public class ModItems {
             entries.accept(HYTODOM_SPAWN_EGG);
             entries.accept(SOULCAT_SPAWN_EGG);
             entries.accept(SOULWOLF_SPAWN_EGG);
+        });
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
+            entries.accept(GHOST_PEPPER);
+            entries.accept(CANDIED_GHOST_PEPPER);
         });
 
         Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);

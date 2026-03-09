@@ -1,11 +1,11 @@
-package net.nullcoil.soulscorch.effect;
+package net.nullcoil.soulscorch.effect.custom;
 
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 
 public class CompanionEffect extends MobEffect {
-    protected CompanionEffect(MobEffectCategory mobEffectCategory, int i) {
+    public CompanionEffect(MobEffectCategory mobEffectCategory, int i) {
         super(mobEffectCategory, i);
     }
 

@@ -3,8 +3,6 @@ package net.nullcoil.soulscorch.entity.client.soulless;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.model.monster.piglin.AbstractPiglinModel;
-import net.minecraft.client.model.monster.piglin.PiglinModel;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
@@ -21,11 +19,10 @@ public class SoullessRenderer extends HumanoidMobRenderer<SoullessEntity, Soulle
     public SoullessRenderer(EntityRendererProvider.Context context) {
         super(context, new SoullessModel(context.bakeLayer(SoullessModel.SOULLESS)), 0.5f);
 
-        // Welcome to the 1.21.4 Armor System!
-        // ArmorModelSet.bake automatically wires up the Helmet, Chest, Legs, and Boots.
+        // THE FIX: Pass SoullessModel::new here so the armor inherits your twitches!
         this.addLayer(new HumanoidArmorLayer<>(
                 this,
-                ArmorModelSet.bake(ModelLayers.ZOMBIFIED_PIGLIN_ARMOR, context.getModelSet(), AbstractPiglinModel::new),
+                ArmorModelSet.bake(ModelLayers.ZOMBIFIED_PIGLIN_ARMOR, context.getModelSet(), SoullessModel::new),
                 context.getEquipmentRenderer()
         ));
     }
@@ -42,10 +39,8 @@ public class SoullessRenderer extends HumanoidMobRenderer<SoullessEntity, Soulle
         state.currentActivity = entity.getActivity();
         state.active = state.currentActivity != SoullessActivity.PASSIVE;
 
-        // Pass the twitch tracker integer so the model knows what to do!
         state.neutralTwitchState = entity.neutralTwitchState;
 
-        // Copy animation states
         state.passiveAnimationState.copyFrom(entity.passiveAnimationState);
         state.neutralAnimationState.copyFrom(entity.neutralAnimationState);
         state.hostileAnimationState.copyFrom(entity.hostileAnimationState);

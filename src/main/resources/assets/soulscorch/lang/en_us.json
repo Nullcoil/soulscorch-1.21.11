@@ -23,6 +23,8 @@
   "item.soulscorch.soul_vent": "Soul Vent",
   "item.soulscorch.glarynx": "Glarynx Block",
   "item.soulscorch.cerulean_froglight": "Cerulean Froglight",
+  "item.soulscorch.ghost_pepper": "Ghost Pepper",
+  "item.soulscorch.candied_ghost_pepper": "Candied Ghost Pepper",
 
   "effect.soulscorch.cat_buff": "Cat Buff",
   "effect.soulscorch.dog_buff": "Dog Buff",
@@ -72,6 +74,8 @@
   "tag.entity_type.soulscorch.soulscorch_entities": "Soulscorch Entities",
   "tag.item.soulscorch.soulstuff": "Soulstuff",
 
-  "death.attack.mania": "%1$s thought themselves to death",
-  "death.attack.mania.player": "%1$s thought themselves to death whist trying to escape %2$s"
+  "death.attack.soulscorch.mania": "%1$s thought themselves to death",
+  "death.attack.soulscorch.mania.player": "%1$s thought themselves to death whist trying to escape %2$s",
+  "death.attack.soulscorch.corruption": "%1$s lost themselves",
+  "death.attack.soulscorch.corruption.player": "%1$s lost themselves fighting %2$s"
 }

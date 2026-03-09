@@ -7,6 +7,9 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.nullcoil.soulscorch.Soulscorch;
+import net.nullcoil.soulscorch.effect.custom.CompanionEffect;
+import net.nullcoil.soulscorch.effect.custom.SoulRenderEffect;
+import net.nullcoil.soulscorch.effect.custom.SoulscorchEffect;
 
 public class ModEffects {
     public static final Holder<MobEffect> CAT_BUFF = registerEffect("cat_buff", new CompanionEffect(MobEffectCategory.BENEFICIAL, 0x000000));

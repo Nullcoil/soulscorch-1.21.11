@@ -7,5 +7,10 @@
   "item.minecraft.tipped_arrow.effect.soul_rendering": "Tipped Arrow of Soul Rendering",
   "item.minecraft.potion.effect.soul_rendering": "Potion of Soul Rendering",
   "item.minecraft.splash_potion.effect.soul_rendering": "Splash Potion of Soul Rendering",
-  "item.minecraft.lingering_potion.effect.soul_rendering": "Lingering Potion of Soul Rendering"
+  "item.minecraft.lingering_potion.effect.soul_rendering": "Lingering Potion of Soul Rendering",
+
+  "item.minecraft.tipped_arrow.effect.soul_rendering_strong": "Tipped Arrow of Soul Rendering II",
+  "item.minecraft.potion.effect.soul_rendering_strong": "Potion of Soul Rendering II",
+  "item.minecraft.splash_potion.effect.soul_rendering_strong": "Splash Potion of Soul Rendering II",
+  "item.minecraft.lingering_potion.effect.soul_rendering_strong": "Lingering Potion of Soul Rendering II"
 }
