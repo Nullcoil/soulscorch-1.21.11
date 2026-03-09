@@ -64,10 +64,24 @@ public class JellyfishModel extends EntityModel<JellyfishRenderState> {
     @Override
     public void setupAnim(JellyfishRenderState state) {
         super.setupAnim(state);
-
         this.root.getAllParts().forEach(ModelPart::resetPose);
 
-        // Apply the baked animation using the state's age!
-        this.idleAnimation.apply(state.IDLE, state.ageInTicks);
+        float t = (state.ageInTicks % (3.5f * 20f)) / 20f;
+        float reverseT = 3.5f - t;
+        float theta = (float)(2.0 * Math.PI * reverseT / 3.5f);
+
+        float bellY = -0.5f * ((float)Math.cos(theta) + 1.0f);
+        bell.y += bellY;
+
+        float scaleY = 2.0f + (float)Math.cos(theta);
+        fringe.yScale *= scaleY;
+
+        float xzTheta = theta - (float)(Math.PI * 0.6f);
+        float scaleXZ = 0.85f + 0.15f * (float)Math.cos(xzTheta);
+        fringe.xScale *= scaleXZ;
+        fringe.zScale *= scaleXZ;
+
+        float bobOffset = (float)Math.cos(xzTheta) * (2.0f / 16.0f);
+        fringe.y += bobOffset;
     }
 }

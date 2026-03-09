@@ -29,10 +29,21 @@ import java.util.List;
 public class JellyfishEntity extends Monster {
     public final AnimationState IDLE = new AnimationState();
 
+    // 1. Give each entity its own unique spin speed
+    private float spinSpeed;
+    private boolean spinCalculated = false;
+
     public JellyfishEntity(EntityType<? extends JellyfishEntity> type, Level level) {
         super(type, level);
         this.moveControl = new JellyfishMoveControl(this);
-        this.xpReward = 2; // experiencePoints mapping
+
+        // Disables standard AI head-snapping completely
+        this.lookControl = new net.minecraft.world.entity.ai.control.LookControl(this) {
+            @Override
+            public void tick() {}
+        };
+
+        this.xpReward = 2;
     }
 
     @Override protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {}
@@ -60,10 +71,8 @@ public class JellyfishEntity extends Monster {
                 .add(Attributes.GRAVITY, 0d);
     }
 
-
-
     @Override
-    public void registerGoals() { // initGoals mapping
+    public void registerGoals() {
         this.goalSelector.addGoal(0, new JellyfishEntity.FlyRandomlyGoal(this));
     }
 
@@ -71,12 +80,23 @@ public class JellyfishEntity extends Monster {
     public void tick() {
         super.tick();
 
+        if(!this.spinCalculated) {
+            java.util.Random seededRandom = new java.util.Random(this.getId());
+            float randomSpin = seededRandom.nextFloat() * .25f;
+            this.spinSpeed = seededRandom.nextBoolean() ? randomSpin : -(randomSpin * randomSpin);
+            this.spinCalculated = true;
+        }
+
+        // 2. Apply the slow rotation every single tick
+        this.setYRot(this.getYRot() + this.spinSpeed);
+        this.setYBodyRot(this.getYRot());
+        this.setYHeadRot(this.getYRot());
+
         if (this.level().isClientSide()) {
             this.IDLE.startIfStopped(this.tickCount);
         }
 
         if (!this.level().isClientSide()) {
-            // Replaced getOtherEntities with getEntities
             List<Entity> entities = this.level().getEntities(this, this.getBoundingBox(),
                     e -> e instanceof LivingEntity &&
                             !e.getType().is(ModTags.Entities.SOULSCORCH_ENTITIES) &&
@@ -100,7 +120,6 @@ public class JellyfishEntity extends Monster {
                             (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE)
                     );
 
-                    // Ensure CAT_BUFF exists in your mapped ModEffects!
                     if (!living.hasEffect(ModEffects.CAT_BUFF) || !living.hasEffect(ModEffects.DOG_BUFF)) {
                         living.addEffect(new MobEffectInstance(
                                 ModEffects.SOULSCORCH,
@@ -130,7 +149,7 @@ public class JellyfishEntity extends Monster {
 
         @Override
         public void tick() {
-            if (this.operation == MoveControl.Operation.MOVE_TO) { // isMoving mapping
+            if (this.operation == MoveControl.Operation.MOVE_TO) {
                 double dx = this.wantedX - this.mob.getX();
                 double dy = this.wantedY - this.mob.getY();
                 double dz = this.wantedZ - this.mob.getZ();
@@ -157,11 +176,10 @@ public class JellyfishEntity extends Monster {
                         )
                 );
 
-                // Keep orientation constant
-                this.mob.setYRot(this.mob.getYRot());
-                this.mob.setXRot(this.mob.getXRot());
+                // Note: We completely removed the `setYRot` and `setXRot` overrides here
+                // so it doesn't fight the continuous spin loop we added in tick().
+
             } else {
-                // idle drifting slowdown
                 this.mob.setDeltaMovement(
                         this.mob.getDeltaMovement().multiply(HORIZONTAL_DAMPING, VERTICAL_DAMPING, HORIZONTAL_DAMPING)
                 );
@@ -219,7 +237,6 @@ public class JellyfishEntity extends Monster {
                 Vec3 currentPos = this.jelly.position();
                 Vec3 targetVec = new Vec3(targetX, targetY, targetZ);
 
-                // Raycast mapping
                 HitResult hit = level.clip(
                         new ClipContext(
                                 currentPos, targetVec,
@@ -247,7 +264,6 @@ public class JellyfishEntity extends Monster {
         }
     }
 
-    // Spawn validation maps to checkSpawnObstruction using LevelReader
     public boolean checkSpawnObstruction(LevelReader level) {
         return canSpawnOnGround(level) || canSpawnInAir(level);
     }
@@ -273,7 +289,7 @@ public class JellyfishEntity extends Monster {
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
                 for (int z = -1; z <= 1; z++) {
-                    BlockPos checkPos = pos.offset(x, y, z); // pos.add mapping
+                    BlockPos checkPos = pos.offset(x, y, z);
                     if (!level.isEmptyBlock(checkPos)) {
                         return false;
                     }
@@ -289,17 +305,15 @@ public class JellyfishEntity extends Monster {
     private boolean isTooDense(LevelReader level, BlockPos pos) {
         List<JellyfishEntity> nearbyJellyfish = this.level().getEntitiesOfClass(
                 JellyfishEntity.class,
-                this.getBoundingBox().inflate(16) // expand mapping
+                this.getBoundingBox().inflate(16)
         );
 
         return nearbyJellyfish.size() > 3;
     }
 
-    // Modernized static spawn check for your SpawnPlacements Registry
     public static boolean checkJellyfishSpawnRules(EntityType<? extends JellyfishEntity> type, ServerLevelAccessor level,
                                                    EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
         if (spawnReason == EntitySpawnReason.NATURAL) {
-            // Using type.create() is safer than manually instantiating in worldgen
             JellyfishEntity dummy = type.create(level.getLevel(), spawnReason);
             if (dummy != null) {
                 dummy.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
