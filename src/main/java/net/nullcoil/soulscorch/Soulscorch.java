@@ -11,6 +11,7 @@ import net.nullcoil.soulscorch.event.ModEvents;
 import net.nullcoil.soulscorch.fire.ModFire;
 import net.nullcoil.soulscorch.item.ModItems;
 import net.nullcoil.soulscorch.loot.ModLootTables;
+import net.nullcoil.soulscorch.particles.ModParticles;
 import net.nullcoil.soulscorch.sound.ModSounds;
 import net.nullcoil.soulscorch.world.gen.ModEntitySpawns;
 import net.nullcoil.soulscorch.world.gen.ModWorldGen;
@@ -36,6 +37,7 @@ public class Soulscorch implements ModInitializer {
 		ModAlchemy.register();
 		ModWorldGen.generate();
 		ModEnchantments.register();
+		ModParticles.register();
 
 		LOGGER.info("Soulscorch initialized successfully");
 	}

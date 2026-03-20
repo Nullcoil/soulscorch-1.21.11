@@ -127,6 +127,7 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.accept(ModBlocks.CERULEAN_FROGLIGHT);
             entries.accept(ModBlocks.SOUL_SLAG_BLOCK);
+            entries.accept(ModBlocks.SEEPING_LEAVES);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(entries -> {
             entries.accept(SOULLESS_SPAWN_EGG);
@@ -139,6 +140,9 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
             entries.accept(GHOST_PEPPER);
             entries.accept(CANDIED_GHOST_PEPPER);
+        });
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
+            entries.accept(ModBlocks.SEEPING_LOG);
         });
 
         Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);

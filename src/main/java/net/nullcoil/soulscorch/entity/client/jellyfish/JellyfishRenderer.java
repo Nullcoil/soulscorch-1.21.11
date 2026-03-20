@@ -39,7 +39,12 @@ public class JellyfishRenderer extends MobRenderer<JellyfishEntity, JellyfishRen
     @Override
     public void extractRenderState(JellyfishEntity entity, JellyfishRenderState state, float tickDelta) {
         super.extractRenderState(entity, state, tickDelta);
-        // Ensure the IDLE animation state transfers from server to client render state
         state.IDLE.copyFrom(entity.IDLE);
+        state.velocityX = (float) entity.getDeltaMovement().x;
+        state.velocityY = (float) entity.getDeltaMovement().y;
+        state.velocityZ = (float) entity.getDeltaMovement().z;
+        state.bodyYaw = entity.yBodyRot;
+        state.spinSpeed = entity.getSpinSpeed();
+        state.isDying = !entity.isDeadOrDying();
     }
 }

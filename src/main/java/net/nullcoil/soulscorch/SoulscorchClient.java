@@ -1,6 +1,8 @@
 package net.nullcoil.soulscorch;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -29,6 +31,8 @@ import net.nullcoil.soulscorch.entity.client.restless.RestlessModel;
 import net.nullcoil.soulscorch.entity.client.restless.RestlessRenderer;
 import net.nullcoil.soulscorch.entity.client.soulless.SoullessModel;
 import net.nullcoil.soulscorch.entity.client.soulless.SoullessRenderer;
+import net.nullcoil.soulscorch.particles.ModParticles;
+import net.nullcoil.soulscorch.particles.SeepingDripParticle;
 import net.nullcoil.soulscorch.screen.ModScreenHandlers;
 import net.nullcoil.soulscorch.screen.SoulBrewingStandScreen;
 
@@ -38,6 +42,7 @@ public class SoulscorchClient implements ClientModInitializer {
         MenuScreens.register(ModScreenHandlers.SOUL_BREWING_STAND, SoulBrewingStandScreen::new);
         BlockRenderLayerMap.putBlock(ModBlocks.SOUL_BREWING_STAND, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.GHOST_PEPPER_SHRUB, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.SEEPING_LEAVES, ChunkSectionLayer.CUTOUT);
 
         EntityModelLayerRegistry.registerModelLayer(BlaztModel.BLAZT, BlaztModel::createBodyLayer);
         EntityRendererRegistry.register(ModEntities.BLAZT, BlaztRenderer::new);
@@ -57,5 +62,9 @@ public class SoulscorchClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SOULBORNE_CAT, SoulCatRenderer::new);
         EntityRendererRegistry.register(ModEntities.SOULBORNE_WOLF, SoulWolfRenderer::new);
 
+        // In your ClientModInitializer
+        ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_DRIP_HANG, SeepingDripParticle.HangProvider::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_DRIP_FALL, SeepingDripParticle.FallProvider::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_DRIP_LAND, SeepingDripParticle.LandProvider::new);
     }
 }

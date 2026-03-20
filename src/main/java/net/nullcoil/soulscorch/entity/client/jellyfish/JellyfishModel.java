@@ -65,23 +65,75 @@ public class JellyfishModel extends EntityModel<JellyfishRenderState> {
     public void setupAnim(JellyfishRenderState state) {
         super.setupAnim(state);
         this.root.getAllParts().forEach(ModelPart::resetPose);
+        if(state.isDying) {
+            animateBell(state);
+            animateTentacles(state);
+        }
+    }
 
-        float t = (state.ageInTicks % (3.5f * 20f)) / 20f;
-        float reverseT = 3.5f - t;
-        float theta = (float)(2.0 * Math.PI * reverseT / 3.5f);
+    private void animateTentacles(JellyfishRenderState state) {
+        ModelPart t1 = this.bell.getChild("tentacle_1");
+        ModelPart t2 = this.bell.getChild("tentacle_2");
 
-        float bellY = -0.5f * ((float)Math.cos(theta) + 1.0f);
-        bell.y += bellY;
+        float bodyYawRad = (float) Math.toRadians(state.bodyYaw);
 
-        float scaleY = 2.0f + (float)Math.cos(theta);
-        fringe.yScale *= scaleY;
+        // 1. Project World Velocity into Local Space
+        float localForwardVelocity = state.velocityX * (float)-Math.sin(bodyYawRad) + state.velocityZ * (float)Math.cos(bodyYawRad);
+        float localRightVelocity   = state.velocityX * (float)Math.cos(bodyYawRad) + state.velocityZ * (float)Math.sin(bodyYawRad);
 
-        float xzTheta = theta - (float)(Math.PI * 0.6f);
-        float scaleXZ = 0.85f + 0.15f * (float)Math.cos(xzTheta);
+        // 2. Calculate the global drag
+        float dragMultiplier = 8.0f;
+        float dragPitch = localForwardVelocity * dragMultiplier;
+        float dragRoll  = localRightVelocity * dragMultiplier;
+
+        // 3. Calculate Spin Torsion
+        float spinTwist = (float) Math.toRadians(-state.spinSpeed) * 1.5f;
+
+        // --- REVERTED: Smooth, Symmetrical Breathing ---
+        // A clean, continuous wave.
+        // 0.05f is the speed, 0.05f is the maximum rotation angle in radians.
+        float time = state.ageInTicks * 0.05f;
+        float breathe = (float) Math.sin(time) * 0.05f;
+
+        // 4. Apply to the tentacles
+        applyTentacleDrag(t1, 0.7854f, dragPitch, dragRoll, spinTwist, breathe);
+        applyTentacleDrag(t2, -0.7854f, dragPitch, dragRoll, spinTwist, breathe);
+    }
+
+    private void applyTentacleDrag(ModelPart tentacle, float baseYRot, float dragPitch, float dragRoll, float spinTwist, float breathe) {
+        float localPitch = dragPitch * (float)Math.cos(-baseYRot) - dragRoll * (float)Math.sin(-baseYRot);
+        float localRoll  = dragPitch * (float)Math.sin(-baseYRot) + dragRoll * (float)Math.cos(-baseYRot);
+
+        // Blend the breathing animation into the pitch so they flare outward from the bell
+        localPitch += breathe;
+
+        // Safety Clamps: Prevents the tentacles from snapping their spines during high knockback!
+        localPitch = Math.max(-1.2f, Math.min(1.2f, localPitch));
+        localRoll  = Math.max(-1.2f, Math.min(1.2f, localRoll));
+
+        tentacle.xRot = localPitch;
+        tentacle.zRot = localRoll;
+        tentacle.yRot = baseYRot + spinTwist;
+    }
+
+    private void animateBell(JellyfishRenderState state) {
+        // 70.0f is 3.5s * 20 ticks/sec
+        float t = (state.ageInTicks % 70.0f) / 20.0f;
+        float theta = (float) (Math.PI * 2.0 * (3.5f - t) / 3.5f);
+        float xzTheta = theta - 1.88495f; // Math.PI * 0.6f
+
+        // Cache the trig calls so the CPU only does the heavy math once per tick!
+        float cosTheta = (float) Math.cos(theta);
+        float cosXzTheta = (float) Math.cos(xzTheta);
+
+        // Apply Vertical
+        bell.y += -0.5f * (cosTheta + 1.0f);
+        fringe.yScale *= 2.0f + cosTheta;
+
+        // Apply Horizontal
+        float scaleXZ = 0.85f + 0.15f * cosXzTheta;
         fringe.xScale *= scaleXZ;
         fringe.zScale *= scaleXZ;
-
-        float bobOffset = (float)Math.cos(xzTheta) * (2.0f / 16.0f);
-        fringe.y += bobOffset;
+        fringe.y += cosXzTheta * 0.125f; // 0.125 is 2.0 / 16.0
     }
 }

@@ -1,0 +1,24 @@
+package net.nullcoil.soulscorch.particles;
+
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+import net.minecraft.core.Registry;
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.nullcoil.soulscorch.Soulscorch;
+
+public class ModParticles {
+    public static SimpleParticleType SEEPING_DRIP_HANG = register("seeping_drip_hang");
+    public static SimpleParticleType SEEPING_DRIP_FALL = register("seeping_drip_fall");
+    public static SimpleParticleType SEEPING_DRIP_LAND = register("seeping_drip_land");
+
+    private static SimpleParticleType register(String name) {
+        return Registry.register(BuiltInRegistries.PARTICLE_TYPE,
+                Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, name),
+                FabricParticleTypes.simple());
+    }
+
+    public static void register() {
+        Soulscorch.LOGGER.info("Registering Mod Particles for " + Soulscorch.MOD_ID);
+    }
+}

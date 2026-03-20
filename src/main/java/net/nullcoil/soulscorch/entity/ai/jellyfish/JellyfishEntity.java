@@ -311,6 +311,10 @@ public class JellyfishEntity extends Monster {
         return nearbyJellyfish.size() > 3;
     }
 
+    public float getSpinSpeed() {
+        return spinSpeed;
+    }
+
     public static boolean checkJellyfishSpawnRules(EntityType<? extends JellyfishEntity> type, ServerLevelAccessor level,
                                                    EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
         if (spawnReason == EntitySpawnReason.NATURAL) {
