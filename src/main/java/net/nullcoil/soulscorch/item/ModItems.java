@@ -25,7 +25,7 @@ import java.util.function.Function;
 
 public class ModItems {
     public static final Item BLAZT_POWDER = registerItem(
-            "blazt_powder", Item::new, new Item.Properties() // You can add .stacksTo(64) or .fireResistant() here if needed!
+            "blazt_powder", Item::new, new Item.Properties()
     );
     public static final Item BLAZT_ROD = registerItem(
             "blazt_rod", Item::new, new Item.Properties()
@@ -87,6 +87,8 @@ public class ModItems {
                             .build())
             );
 
+    public static final Item AVALCOMB = registerItem("avalcomb", Item::new, new Item.Properties());
+
     // 2. The completed helper method
     private static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         // Build the Identifier
@@ -114,6 +116,7 @@ public class ModItems {
             entries.accept(SOUL_CREAM);
             entries.accept(SOUL_CHARGE);
             entries.accept(SOUL_SHARD);
+            entries.accept(AVALCOMB);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
             entries.accept(SOULWARD_TOTEM);
@@ -129,6 +132,7 @@ public class ModItems {
             entries.accept(ModBlocks.CERULEAN_FROGLIGHT);
             entries.accept(ModBlocks.SOUL_SLAG_BLOCK);
             entries.accept(SeepingBlocks.SEEPING_LEAVES);
+            entries.accept(ModBlocks.SEEPING_SALLOW_SAPLING);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(entries -> {
             entries.accept(SOULLESS_SPAWN_EGG);

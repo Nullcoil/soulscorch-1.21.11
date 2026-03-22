@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "soulscorch:block/seeping_sallow_sapling"
+  }
+}

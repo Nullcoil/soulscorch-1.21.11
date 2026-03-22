@@ -14,6 +14,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.particle.FallingLeavesParticle;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.WolfRenderer;
 import net.minecraft.resources.Identifier;
@@ -44,6 +45,7 @@ public class SoulscorchClient implements ClientModInitializer {
         BlockRenderLayerMap.putBlock(ModBlocks.SOUL_BREWING_STAND, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.GHOST_PEPPER_SHRUB, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(SeepingBlocks.SEEPING_LEAVES, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.SEEPING_SALLOW_SAPLING, ChunkSectionLayer.CUTOUT);
 
         EntityModelLayerRegistry.registerModelLayer(BlaztModel.BLAZT, BlaztModel::createBodyLayer);
         EntityRendererRegistry.register(ModEntities.BLAZT, BlaztRenderer::new);
@@ -63,9 +65,9 @@ public class SoulscorchClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SOULBORNE_CAT, SoulCatRenderer::new);
         EntityRendererRegistry.register(ModEntities.SOULBORNE_WOLF, SoulWolfRenderer::new);
 
-        // In your ClientModInitializer
         ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_DRIP_HANG, SeepingDripParticle.HangProvider::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_DRIP_FALL, SeepingDripParticle.FallProvider::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_DRIP_LAND, SeepingDripParticle.LandProvider::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_SALLOW_LEAVES, FallingLeavesParticle.CherryProvider::new);
     }
 }

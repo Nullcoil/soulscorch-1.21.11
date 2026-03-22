@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:honeycomb",
+    "minecraft:honeycomb",
+    "minecraft:honeycomb",
+    "minecraft:honeycomb",
+    "soulscorch:soul_cream",
+    "soulscorch:soul_cream",
+    "soulscorch:soul_cream",
+    "soulscorch:soul_cream"
+  ],
+  "result": {
+    "id": "soulscorch:avalcomb",
+    "count": 4
+  }
+}

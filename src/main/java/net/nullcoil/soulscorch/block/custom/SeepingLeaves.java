@@ -10,10 +10,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.UntintedParticleLeavesBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.nullcoil.soulscorch.particles.ModParticles;
 
 public class SeepingLeaves extends UntintedParticleLeavesBlock {
-
     public SeepingLeaves(float f, ParticleOptions particle, BlockBehaviour.Properties properties) {
         super(f, particle, properties);
     }
@@ -21,17 +21,42 @@ public class SeepingLeaves extends UntintedParticleLeavesBlock {
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         super.animateTick(state, level, pos, random);
-        if(random.nextInt(5)==0) {
+        if (random.nextInt(10) == 0) {
             Direction direction = Direction.getRandom(random);
-            if(direction != Direction.UP) {
-                BlockPos pos2 = pos.relative(direction);
-                BlockState state2 = level.getBlockState(pos2);
-                if(!state.canOcclude() || !state2.isFaceSturdy(level, pos2, direction.getOpposite())) {
-                    double d = direction.getStepX() == 0 ? random.nextDouble() : (double)0.5f + (double) direction.getStepX() * 0.6;
-                    double e = direction.getStepY() == 0 ? random.nextDouble() : (double)0.5f + (double) direction.getStepY() * 0.6;
-                    double f = direction.getStepZ() == 0 ? random.nextDouble() : (double)0.5f + (double) direction.getStepZ() * 0.6;
-                    level.addParticle(ModParticles.SEEPING_DRIP_HANG, (double) pos.getX() + d, (double)pos.getY()+e, (double)pos.getZ()+f, 0d, 0d, 0d);
-                    level.playLocalSound(pos, SoundEvents.BEEHIVE_DRIP, SoundSource.BLOCKS, 1.0F, 0.8F, false);
+            if (direction != Direction.UP) {
+                BlockPos neighborPos = pos.relative(direction);
+                BlockState neighborState = level.getBlockState(neighborPos);
+
+                if (!state.canOcclude() || !neighborState.isFaceSturdy(level, neighborPos, direction.getOpposite())) {
+
+                    VoxelShape shape = state.getShape(level, pos);
+                    if (shape.isEmpty()) return;
+
+                    double minX = shape.min(Direction.Axis.X);
+                    double maxX = shape.max(Direction.Axis.X);
+                    double minY = shape.min(Direction.Axis.Y);
+                    double maxY = shape.max(Direction.Axis.Y);
+                    double minZ = shape.min(Direction.Axis.Z);
+                    double maxZ = shape.max(Direction.Axis.Z);
+
+                    double d = switch (direction.getAxis()) {
+                        case X -> direction.getStepX() > 0 ? maxX : minX;
+                        default -> minX + random.nextDouble() * (maxX - minX);
+                    };
+                    double e = switch (direction.getAxis()) {
+                        case Y -> direction.getStepY() > 0 ? maxY : minY;
+                        default -> minY + random.nextDouble() * (maxY - minY);
+                    };
+                    double f = switch (direction.getAxis()) {
+                        case Z -> direction.getStepZ() > 0 ? maxZ : minZ;
+                        default -> minZ + random.nextDouble() * (maxZ - minZ);
+                    };
+
+                    level.addParticle(ModParticles.SEEPING_DRIP_HANG,
+                            pos.getX() + d, pos.getY() + e, pos.getZ() + f,
+                            0d, 0d, 0d);
+                    level.playLocalSound(pos, SoundEvents.BEEHIVE_DRIP,
+                            SoundSource.BLOCKS, 1.0F, 0.8F, false);
                 }
             }
         }

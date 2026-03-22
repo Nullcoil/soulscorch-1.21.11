@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "soulscorch:seeping_log",
+    "soulscorch:seeping_wood",
+    "soulscorch:stripped_seeping_log",
+    "soulscorch:stripped_seeping_wood"
+  ]
+}

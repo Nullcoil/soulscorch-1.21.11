@@ -8,21 +8,20 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.block.custom.*;
+import net.nullcoil.soulscorch.particles.ModParticles;
 
 import java.util.function.Function;
 
 public class SeepingBlocks {
     public static final Block SEEPING_LEAVES = registerBlock("seeping_leaves",
-            props -> new SeepingLeaves(0.02f, ParticleTypes.PALE_OAK_LEAVES, props), BlockBehaviour.Properties.of()
+            props -> new SeepingLeaves(0.02f, ModParticles.SEEPING_SALLOW_LEAVES, props), BlockBehaviour.Properties.of()
                     .strength(0.2f)
                     .randomTicks()
                     .sound(SoundType.LEAF_LITTER)

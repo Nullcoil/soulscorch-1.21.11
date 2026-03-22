@@ -12,6 +12,8 @@ public class ModParticles {
     public static SimpleParticleType SEEPING_DRIP_FALL = register("seeping_drip_fall");
     public static SimpleParticleType SEEPING_DRIP_LAND = register("seeping_drip_land");
 
+    public static final SimpleParticleType SEEPING_SALLOW_LEAVES = register("seeping_sallow_leaves");
+
     private static SimpleParticleType register(String name) {
         return Registry.register(BuiltInRegistries.PARTICLE_TYPE,
                 Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, name),

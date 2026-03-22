@@ -23,8 +23,6 @@ import net.nullcoil.soulscorch.particles.ModParticles;
 import java.util.function.Function;
 
 public class ModBlocks {
-
-    // 1. Declare the block, passing the constructor as a method reference (SoulBrewingStandBlock::new)
     public static final Block SOUL_BREWING_STAND = registerBlock(
             "soul_brewing_stand",
             SoulBrewingStandBlock::new,
@@ -73,14 +71,24 @@ public class ModBlocks {
     public static final Block GHOST_PEPPER_SHRUB = registerBlock("ghost_pepper_shrub",
             GhostPepperShrubBlock::new, BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_RED)
-                    .noCollision() // Lets players walk through it
-                    .instabreak()   // Breaks instantly when punched
-                    .randomTicks()  // CRUCIAL: Tells the game to grow it over time
+                    .noCollision()
+                    .instabreak()
+                    .randomTicks()
                     .sound(SoundType.SWEET_BERRY_BUSH)
                     .pushReaction(PushReaction.DESTROY) // Pistons will break it
                     .isRedstoneConductor(Blocks::never),
             false
             );
+
+    public static final Block SEEPING_SALLOW_SAPLING = registerBlock("seeping_sallow_sapling",
+            SeepingSallowSapling::new, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .noCollision()
+                    .instabreak()
+                    .randomTicks()
+                    .sound(SoundType.CHERRY_SAPLING)
+                    .pushReaction(PushReaction.DESTROY)
+                    .isRedstoneConductor(Blocks::never));
 
     private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
         return registerBlock(name,factory,properties, true);

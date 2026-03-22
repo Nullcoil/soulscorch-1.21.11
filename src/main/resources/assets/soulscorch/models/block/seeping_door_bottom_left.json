@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "soulscorch:block/seeping_door_bottom",
+    "top": "soulscorch:block/seeping_door_top"
+  }
+}

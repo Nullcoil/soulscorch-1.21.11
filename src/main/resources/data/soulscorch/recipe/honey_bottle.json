@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": "minecraft:honeycomb",
+    "B": "minecraft:glass_bottle"
+  },
+  "pattern": [
+    "H",
+    "B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:honey_bottle"
+  }
+}

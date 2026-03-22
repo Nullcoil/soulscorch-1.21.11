@@ -1,6 +1,7 @@
 package net.nullcoil.soulscorch;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.nullcoil.soulscorch.alchemy.ModAlchemy;
 import net.nullcoil.soulscorch.block.ModBlockEntities;
 import net.nullcoil.soulscorch.block.ModBlocks;
@@ -13,6 +14,7 @@ import net.nullcoil.soulscorch.item.ModItems;
 import net.nullcoil.soulscorch.loot.ModLootTables;
 import net.nullcoil.soulscorch.particles.ModParticles;
 import net.nullcoil.soulscorch.sound.ModSounds;
+import net.nullcoil.soulscorch.util.SampleBiomeCommand;
 import net.nullcoil.soulscorch.world.gen.ModEntitySpawns;
 import net.nullcoil.soulscorch.world.gen.ModWorldGen;
 import org.slf4j.Logger;
@@ -38,6 +40,9 @@ public class Soulscorch implements ModInitializer {
 		ModWorldGen.generate();
 		ModEnchantments.register();
 		ModParticles.register();
+
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
+				SampleBiomeCommand.register(dispatcher));
 
 		LOGGER.info("Soulscorch initialized successfully");
 	}
