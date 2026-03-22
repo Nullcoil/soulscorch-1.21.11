@@ -9,8 +9,6 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.nullcoil.soulscorch.Soulscorch;
 
 public class ModAttributes {
-
-    // We use a RangedAttribute so it can never drop below 0!
     public static final Holder<Attribute> CORRUPTION = Registry.registerForHolder(
             BuiltInRegistries.ATTRIBUTE,
             Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "corruption"),
@@ -18,7 +16,6 @@ public class ModAttributes {
     );
 
     public static void register() {
-        // Calling this in your main ModInitializer forces the static field above to load!
         Soulscorch.LOGGER.info("Registering Attributes for " + Soulscorch.MOD_ID);
     }
 }

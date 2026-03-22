@@ -14,6 +14,7 @@ import java.util.List;
 
 public class ModLootTables {
     public static void register() {
+        Soulscorch.LOGGER.info("Registering Loot Tables for " + Soulscorch.MOD_ID);
         List<ResourceKey<LootTable>> bastions = List.of(
                 BuiltInLootTables.BASTION_TREASURE,
                 BuiltInLootTables.BASTION_OTHER,
@@ -29,6 +30,21 @@ public class ModLootTables {
                 builder.withPool(LootPool.lootPool().add(
                         NestedLootTable.lootTableReference(
                                 ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "inject/bastion_items"))
+                        )
+                ));
+                builder.withPool(LootPool.lootPool().add(
+                        NestedLootTable.lootTableReference(
+                                ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "inject/bastion_peasantries"))
+                        )
+                ));
+            }
+        });
+
+        LootTableEvents.MODIFY.register((key, builder, source, registries) -> {
+            if(key.equals(BuiltInLootTables.BASTION_HOGLIN_STABLE)) {
+                builder.withPool(LootPool.lootPool().add(
+                        NestedLootTable.lootTableReference(
+                                ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "inject/bastion_peasantries"))
                         )
                 ));
             }

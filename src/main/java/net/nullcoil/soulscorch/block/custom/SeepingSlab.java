@@ -38,8 +38,6 @@ public class SeepingSlab extends SlabBlock {
                     double minZ = shape.min(Direction.Axis.Z);
                     double maxZ = shape.max(Direction.Axis.Z);
 
-                    // For the axis the direction travels along, pin to the face edge.
-                    // For the other two axes, randomize within the shape's bounds.
                     double d = switch (direction.getAxis()) {
                         case X -> direction.getStepX() > 0 ? maxX : minX;
                         default -> minX + random.nextDouble() * (maxX - minX);
