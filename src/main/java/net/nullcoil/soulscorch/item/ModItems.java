@@ -14,6 +14,7 @@ import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.block.Block;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.block.ModBlocks;
+import net.nullcoil.soulscorch.block.SeepingBlocks;
 import net.nullcoil.soulscorch.entity.ModEntities;
 import net.nullcoil.soulscorch.item.custom.CandiedGhostPepperItem;
 import net.nullcoil.soulscorch.item.custom.GhostPepperItem;
@@ -127,7 +128,7 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.accept(ModBlocks.CERULEAN_FROGLIGHT);
             entries.accept(ModBlocks.SOUL_SLAG_BLOCK);
-            entries.accept(ModBlocks.SEEPING_LEAVES);
+            entries.accept(SeepingBlocks.SEEPING_LEAVES);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(entries -> {
             entries.accept(SOULLESS_SPAWN_EGG);
@@ -142,7 +143,19 @@ public class ModItems {
             entries.accept(CANDIED_GHOST_PEPPER);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
-            entries.accept(ModBlocks.SEEPING_LOG);
+            entries.accept(SeepingBlocks.SEEPING_LOG);
+            entries.accept(SeepingBlocks.SEEPING_WOOD);
+            entries.accept(SeepingBlocks.SEEPING_PLANKS);
+            entries.accept(SeepingBlocks.STRIPPED_SEEPING_LOG);
+            entries.accept(SeepingBlocks.STRIPPED_SEEPING_WOOD);
+            entries.accept(SeepingBlocks.SEEPING_BUTTON);
+            entries.accept(SeepingBlocks.SEEPING_DOOR);
+            entries.accept(SeepingBlocks.SEEPING_FENCE);
+            entries.accept(SeepingBlocks.SEEPING_FENCE_GATE);
+            entries.accept(SeepingBlocks.SEEPING_PRESSURE_PLATE);
+            entries.accept(SeepingBlocks.SEEPING_SLAB);
+            entries.accept(SeepingBlocks.SEEPING_STAIRS);
+            entries.accept(SeepingBlocks.SEEPING_TRAPDOOR);
         });
 
         Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);

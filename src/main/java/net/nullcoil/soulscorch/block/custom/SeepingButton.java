@@ -6,15 +6,15 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.nullcoil.soulscorch.particles.ModParticles;
 
-public class SeepingLog extends RotatedPillarBlock {
-
-    public SeepingLog(BlockBehaviour.Properties properties) {
-        super(properties);
+public class SeepingButton extends ButtonBlock {
+    public SeepingButton(BlockSetType blockSetType, int i, Properties properties) {
+        super(blockSetType, i, properties);
     }
 
     @Override

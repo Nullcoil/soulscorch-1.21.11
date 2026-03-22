@@ -18,6 +18,7 @@ import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.WolfRenderer;
 import net.minecraft.resources.Identifier;
 import net.nullcoil.soulscorch.block.ModBlocks;
+import net.nullcoil.soulscorch.block.SeepingBlocks;
 import net.nullcoil.soulscorch.entity.ModEntities;
 import net.nullcoil.soulscorch.entity.ai.RestlessEntity;
 import net.nullcoil.soulscorch.entity.client.blazt.BlaztModel;
@@ -42,7 +43,7 @@ public class SoulscorchClient implements ClientModInitializer {
         MenuScreens.register(ModScreenHandlers.SOUL_BREWING_STAND, SoulBrewingStandScreen::new);
         BlockRenderLayerMap.putBlock(ModBlocks.SOUL_BREWING_STAND, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.GHOST_PEPPER_SHRUB, ChunkSectionLayer.CUTOUT);
-        BlockRenderLayerMap.putBlock(ModBlocks.SEEPING_LEAVES, ChunkSectionLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(SeepingBlocks.SEEPING_LEAVES, ChunkSectionLayer.CUTOUT);
 
         EntityModelLayerRegistry.registerModelLayer(BlaztModel.BLAZT, BlaztModel::createBodyLayer);
         EntityRendererRegistry.register(ModEntities.BLAZT, BlaztRenderer::new);

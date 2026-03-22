@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "soulscorch:block/seeping_log",
+    "side": "soulscorch:block/seeping_log"
+  }
+}

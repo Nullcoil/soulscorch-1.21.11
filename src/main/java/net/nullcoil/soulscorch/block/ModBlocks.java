@@ -82,26 +82,6 @@ public class ModBlocks {
             false
             );
 
-    public static final Block SEEPING_LEAVES = registerBlock("seeping_leaves",
-            props -> new SeepingLeaves(0.02f, ParticleTypes.PALE_OAK_LEAVES, props), BlockBehaviour.Properties.of()
-                    .strength(0.2f)
-                    .randomTicks()
-                    .sound(SoundType.LEAF_LITTER)
-                    .noOcclusion()
-                    .isValidSpawn(Blocks::ocelotOrParrot)
-                    .isSuffocating(Blocks::never)
-                    .isViewBlocking(Blocks::never)
-                    .pushReaction(PushReaction.DESTROY)
-                    .isRedstoneConductor(Blocks::never));
-
-    public static final Block SEEPING_LOG = registerBlock("seeping_log",
-            RotatedPillarBlock::new, BlockBehaviour.Properties.of()
-                    .mapColor(Blocks.SOUL_SOIL.defaultMapColor())
-                    .instrument(NoteBlockInstrument.BASS)
-                    .strength(2f)
-                    .sound(SoundType.WOOD)
-                    .randomTicks());
-
     private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
         return registerBlock(name,factory,properties, true);
     }
@@ -123,5 +103,6 @@ public class ModBlocks {
 
     public static void register() {
         Soulscorch.LOGGER.info("Registering Mod Blocks for " + Soulscorch.MOD_ID);
+        SeepingBlocks.register();
     }
 }

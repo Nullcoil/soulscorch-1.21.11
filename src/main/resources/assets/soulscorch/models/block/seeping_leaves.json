@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "soulscorch:block/seeping_leaves"
+  }
+}
