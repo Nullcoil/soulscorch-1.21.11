@@ -1,8 +1,10 @@
 package net.nullcoil.soulscorch;
 
+import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -11,15 +13,26 @@ import net.minecraft.client.model.animal.feline.CatModel;
 import net.minecraft.client.model.animal.feline.OcelotModel;
 import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.particle.FallingLeavesParticle;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.WolfRenderer;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.HangingSignBlockEntity;
+import net.minecraft.world.level.block.state.properties.WoodType;
+import net.nullcoil.soulscorch.block.ModBlockEntities;
 import net.nullcoil.soulscorch.block.ModBlocks;
+import net.nullcoil.soulscorch.block.ModWoodTypes;
 import net.nullcoil.soulscorch.block.SeepingBlocks;
+import net.nullcoil.soulscorch.entity.ModBoats;
 import net.nullcoil.soulscorch.entity.ModEntities;
 import net.nullcoil.soulscorch.entity.ai.RestlessEntity;
 import net.nullcoil.soulscorch.entity.client.blazt.BlaztModel;
@@ -46,6 +59,11 @@ public class SoulscorchClient implements ClientModInitializer {
         BlockRenderLayerMap.putBlock(ModBlocks.GHOST_PEPPER_SHRUB, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(SeepingBlocks.SEEPING_LEAVES, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.SEEPING_SALLOW_SAPLING, ChunkSectionLayer.CUTOUT);
+        BlockEntityRenderers.register(ModBlockEntities.SEEPING_SIGN, SignRenderer::new);
+
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.SEEPING);
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.CRIMSON);
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.WARPED);
 
         EntityModelLayerRegistry.registerModelLayer(BlaztModel.BLAZT, BlaztModel::createBodyLayer);
         EntityRendererRegistry.register(ModEntities.BLAZT, BlaztRenderer::new);

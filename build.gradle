@@ -22,6 +22,11 @@ repositories {
 			includeGroup "it.crystalnest"
 		}
 	}
+
+	maven {
+		name = 'TerraformersMC'
+		url = 'https://maven.terraformersmc.com/'
+	}
 }
 
 fabricApi {
@@ -40,6 +45,12 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	modImplementation "it.crystalnest:prometheus-fabric:$minecraft_version-$prometheus_version"
 	modImplementation "it.crystalnest:cobweb-fabric:$minecraft_version-$cobweb_version"
+	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:16.0.0"
+	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:16.0.0"
+}
+
+loom {
+	accessWidenerPath = file("src/main/resources/soulscorch.accesswidener")
 }
 
 processResources {

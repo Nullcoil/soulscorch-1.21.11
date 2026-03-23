@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.nullcoil.soulscorch.alchemy.ModAlchemy;
 import net.nullcoil.soulscorch.block.ModBlockEntities;
 import net.nullcoil.soulscorch.block.ModBlocks;
+import net.nullcoil.soulscorch.block.ModWoodTypes;
 import net.nullcoil.soulscorch.effect.ModEffects;
 import net.nullcoil.soulscorch.enchantment.ModEnchantments;
 import net.nullcoil.soulscorch.entity.ModEntities;
@@ -26,6 +27,7 @@ public class Soulscorch implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModWoodTypes.register();
 		ModItems.register();
 		ModBlocks.register();
 		ModBlockEntities.register();

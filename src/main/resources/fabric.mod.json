@@ -25,6 +25,7 @@
 			"net.nullcoil.soulscorch.SoulscorchDataGenerator"
 		]
 	},
+	"accessWidener": "soulscorch.accesswidener",
 	"mixins": [
 		"soulscorch.mixins.json"
 	],

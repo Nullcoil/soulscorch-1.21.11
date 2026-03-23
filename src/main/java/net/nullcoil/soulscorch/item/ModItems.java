@@ -7,14 +7,12 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.FireChargeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.block.ModBlocks;
 import net.nullcoil.soulscorch.block.SeepingBlocks;
+import net.nullcoil.soulscorch.entity.ModBoats;
 import net.nullcoil.soulscorch.entity.ModEntities;
 import net.nullcoil.soulscorch.item.custom.CandiedGhostPepperItem;
 import net.nullcoil.soulscorch.item.custom.GhostPepperItem;
@@ -87,6 +85,16 @@ public class ModItems {
                             .build())
             );
 
+    public static final Item SEEPING_SIGN = registerItem("seeping_sign",
+            properties -> new SignItem(SeepingBlocks.SEEPING_SIGN, SeepingBlocks.SEEPING_WALL_SIGN, properties),
+            new Item.Properties().stacksTo(16)
+    );
+
+    public static final Item SEEPING_HANGING_SIGN = registerItem("seeping_hanging_sign",
+            properties -> new HangingSignItem(SeepingBlocks.SEEPING_HANGING_SIGN, SeepingBlocks.SEEPING_WALL_HANGING_SIGN, properties),
+            new Item.Properties().stacksTo(16)
+    );
+
     public static final Item AVALCOMB = registerItem("avalcomb", Item::new, new Item.Properties());
 
     // 2. The completed helper method
@@ -120,6 +128,12 @@ public class ModItems {
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
             entries.accept(SOULWARD_TOTEM);
+            entries.accept(ModBoats.CRIMSON_BOAT);
+            entries.accept(ModBoats.WARPED_BOAT);
+            entries.accept(ModBoats.SEEPING_BOAT);
+            entries.accept(ModBoats.CRIMSON_CHEST_BOAT);
+            entries.accept(ModBoats.WARPED_CHEST_BOAT);
+            entries.accept(ModBoats.SEEPING_CHEST_BOAT);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
             entries.accept(ModBlocks.SOUL_BREWING_STAND);
@@ -160,6 +174,8 @@ public class ModItems {
             entries.accept(SeepingBlocks.SEEPING_SLAB);
             entries.accept(SeepingBlocks.SEEPING_STAIRS);
             entries.accept(SeepingBlocks.SEEPING_TRAPDOOR);
+            entries.accept(SEEPING_SIGN);
+            entries.accept(SEEPING_HANGING_SIGN);
         });
 
         Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);
