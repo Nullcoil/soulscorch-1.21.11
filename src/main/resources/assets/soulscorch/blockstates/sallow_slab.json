@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "soulscorch:block/seeping_slab"
+    },
+    "type=double": {
+      "model": "soulscorch:block/seeping_planks"
+    },
+    "type=top": {
+      "model": "soulscorch:block/seeping_slab_top"
+    }
+  }
+}

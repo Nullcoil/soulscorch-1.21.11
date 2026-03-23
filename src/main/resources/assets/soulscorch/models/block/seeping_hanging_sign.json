@@ -1,5 +1,5 @@
 {
   "textures": {
-    "particle": "minecraft:block/stripped_acacia_log"
+    "particle": "soulscorch:block/stripped_seeping_log"
   }
 }

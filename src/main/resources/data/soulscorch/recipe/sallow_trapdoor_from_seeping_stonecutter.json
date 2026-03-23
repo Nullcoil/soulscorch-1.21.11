@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:seeping_trapdoor",
+  "result": {
+    "id": "soulscorch:sallow_trapdoor",
+    "count": 1
+  }
+}

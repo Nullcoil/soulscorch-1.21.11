@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:sallow_wood",
+  "result": {
+    "id": "soulscorch:seeping_wood",
+    "count": 1
+  }
+}

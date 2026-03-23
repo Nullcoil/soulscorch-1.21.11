@@ -4,7 +4,9 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.HangingSignBlockEntity;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.block.entity.SeepingHangingSignBlockEntity;
@@ -36,6 +38,26 @@ public class ModBlockEntities {
                     FabricBlockEntityTypeBuilder.create(
                             SeepingHangingSignBlockEntity::new,
                             SeepingBlocks.SEEPING_HANGING_SIGN, SeepingBlocks.SEEPING_WALL_HANGING_SIGN
+                    ).build()
+            );
+
+    public static final BlockEntityType<SignBlockEntity> SALLOW_SIGN =
+            Registry.register(
+                    BuiltInRegistries.BLOCK_ENTITY_TYPE,
+                    Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "sallow_sign"),
+                    FabricBlockEntityTypeBuilder.create(
+                            (pos, state) -> new SignBlockEntity(ModBlockEntities.SALLOW_SIGN, pos, state),
+                            SallowBlocks.SALLOW_SIGN, SallowBlocks.SALLOW_WALL_SIGN
+                    ).build()
+            );
+
+    public static final BlockEntityType<HangingSignBlockEntity> SALLOW_WALL_HANGING_SIGN =
+            Registry.register(
+                    BuiltInRegistries.BLOCK_ENTITY_TYPE,
+                    Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "seeping_wall_hanging_sign"),
+                    FabricBlockEntityTypeBuilder.create(
+                            HangingSignBlockEntity::new,
+                            SallowBlocks.SALLOW_HANGING_SIGN, SallowBlocks.SALLOW_WALL_HANGING_SIGN
                     ).build()
             );
 

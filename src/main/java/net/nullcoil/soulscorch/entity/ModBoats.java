@@ -22,13 +22,17 @@ import java.util.function.Supplier;
 
 public class ModBoats {
     public static final Identifier SEEPING = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "seeping");
+    public static final Identifier SALLOW = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "sallow");
     public static final Identifier CRIMSON = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "crimson");
     public static final Identifier WARPED = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "warped");
 
+    public static final BoatItem SALLOW_BOAT = registerCustomBoat(SALLOW, false, false);
+    public static final BoatItem SALLOW_CHEST_BOAT = registerCustomBoat(SALLOW, true, false);
     public static final BoatItem CRIMSON_BOAT = registerCustomBoat(CRIMSON, false, false);
     public static final BoatItem CRIMSON_CHEST_BOAT = registerCustomBoat(CRIMSON, true, false);
     public static final BoatItem WARPED_BOAT = registerCustomBoat(WARPED, false, false);
     public static final BoatItem WARPED_CHEST_BOAT = registerCustomBoat(WARPED, true, false);
+
     public static final BoatItem SEEPING_BOAT = registerCustomBoat(SEEPING, false, true);
     public static final BoatItem SEEPING_CHEST_BOAT = registerCustomBoat(SEEPING, true, true);
 
@@ -55,7 +59,7 @@ public class ModBoats {
                             .build(entityTypeKey));
             TerraformBoatDataImpl.addChestBoat(id, (EntityType<ChestBoat>)(EntityType<?>) entityType);
             BoatItem item = Registry.register(BuiltInRegistries.ITEM, itemKey,
-                    new BoatItem((EntityType<? extends AbstractBoat>) entityType, new Item.Properties().stacksTo(1).setId(itemKey)));
+                    new BoatItem((EntityType<? extends AbstractBoat>) entityType, new Item.Properties().stacksTo(1).fireResistant().setId(itemKey)));
             itemHolder[0] = item;
             DispenserBlock.registerBehavior(item, new BoatDispenseItemBehavior((EntityType<? extends AbstractBoat>) entityType));
             return item;
@@ -73,7 +77,7 @@ public class ModBoats {
                             .build(entityTypeKey));
             TerraformBoatDataImpl.addBoat(id, (EntityType<Boat>)(EntityType<?>) entityType);
             BoatItem item = Registry.register(BuiltInRegistries.ITEM, itemKey,
-                    new BoatItem((EntityType<? extends AbstractBoat>) entityType, new Item.Properties().stacksTo(1).setId(itemKey)));
+                    new BoatItem((EntityType<? extends AbstractBoat>) entityType, new Item.Properties().stacksTo(1).fireResistant().setId(itemKey)));
             itemHolder[0] = item;
             DispenserBlock.registerBehavior(item, new BoatDispenseItemBehavior((EntityType<? extends AbstractBoat>) entityType));
             return item;

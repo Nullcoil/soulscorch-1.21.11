@@ -24,6 +24,10 @@
     "requireAnnotations": true
   },
   "client": [
-    "GuiMixin"
+    "GuiMixin",
+    "boat.AbstractBoatRendererMixin",
+    "boat.BoatRendererLavaMaskMixin",
+    "boat.BoatRenderStateMixin",
+    "boat.ItemBlockRenderTypesMixin"
   ]
 }

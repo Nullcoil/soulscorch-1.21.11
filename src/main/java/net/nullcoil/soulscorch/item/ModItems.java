@@ -11,6 +11,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.block.ModBlocks;
+import net.nullcoil.soulscorch.block.SallowBlocks;
 import net.nullcoil.soulscorch.block.SeepingBlocks;
 import net.nullcoil.soulscorch.entity.ModBoats;
 import net.nullcoil.soulscorch.entity.ModEntities;
@@ -94,6 +95,15 @@ public class ModItems {
             properties -> new HangingSignItem(SeepingBlocks.SEEPING_HANGING_SIGN, SeepingBlocks.SEEPING_WALL_HANGING_SIGN, properties),
             new Item.Properties().stacksTo(16)
     );
+    public static final Item SALLOW_SIGN = registerItem("sallow_sign",
+            properties -> new SignItem(SallowBlocks.SALLOW_SIGN, SallowBlocks.SALLOW_WALL_SIGN, properties),
+            new Item.Properties().stacksTo(16)
+    );
+
+    public static final Item SALLOW_HANGING_SIGN = registerItem("sallow_hanging_sign",
+            properties -> new HangingSignItem(SallowBlocks.SALLOW_HANGING_SIGN, SallowBlocks.SALLOW_WALL_HANGING_SIGN, properties),
+            new Item.Properties().stacksTo(16)
+    );
 
     public static final Item AVALCOMB = registerItem("avalcomb", Item::new, new Item.Properties());
 
@@ -129,15 +139,23 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
             entries.accept(SOULWARD_TOTEM);
             entries.accept(ModBoats.CRIMSON_BOAT);
-            entries.accept(ModBoats.WARPED_BOAT);
-            entries.accept(ModBoats.SEEPING_BOAT);
             entries.accept(ModBoats.CRIMSON_CHEST_BOAT);
+            entries.accept(ModBoats.WARPED_BOAT);
             entries.accept(ModBoats.WARPED_CHEST_BOAT);
+            entries.accept(ModBoats.SEEPING_BOAT);
             entries.accept(ModBoats.SEEPING_CHEST_BOAT);
+            entries.accept(ModBoats.SALLOW_BOAT);
+            entries.accept(ModBoats.SALLOW_CHEST_BOAT);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
             entries.accept(ModBlocks.SOUL_BREWING_STAND);
             entries.accept(ModBlocks.IRON_BULB_BLOCK);
+            entries.accept(ModBlocks.CERULEAN_FROGLIGHT);
+            entries.accept(ModBlocks.SOUL_SLAG_BLOCK);
+            entries.accept(SEEPING_SIGN);
+            entries.accept(SEEPING_HANGING_SIGN);
+            entries.accept(SALLOW_SIGN);
+            entries.accept(SALLOW_HANGING_SIGN);
         });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(entries -> {
             entries.accept(ModBlocks.IRON_BULB_BLOCK);
@@ -176,6 +194,22 @@ public class ModItems {
             entries.accept(SeepingBlocks.SEEPING_TRAPDOOR);
             entries.accept(SEEPING_SIGN);
             entries.accept(SEEPING_HANGING_SIGN);
+            entries.accept(SallowBlocks.SALLOW_LOG);
+            entries.accept(SallowBlocks.SALLOW_WOOD);
+            entries.accept(SallowBlocks.SALLOW_PLANKS);
+            entries.accept(SallowBlocks.STRIPPED_SALLOW_LOG);
+            entries.accept(SallowBlocks.STRIPPED_SALLOW_WOOD);
+            entries.accept(SallowBlocks.SALLOW_BUTTON);
+            entries.accept(SallowBlocks.SALLOW_DOOR);
+            entries.accept(SallowBlocks.SALLOW_FENCE);
+            entries.accept(SallowBlocks.SALLOW_FENCE_GATE);
+            entries.accept(SallowBlocks.SALLOW_PRESSURE_PLATE);
+            entries.accept(SallowBlocks.SALLOW_SLAB);
+            entries.accept(SallowBlocks.SALLOW_STAIRS);
+            entries.accept(SallowBlocks.SALLOW_TRAPDOOR);
+            entries.accept(SALLOW_SIGN);
+            entries.accept(SALLOW_HANGING_SIGN);
+            entries.accept(ModBlocks.IRON_BULB_BLOCK);
         });
 
         Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);

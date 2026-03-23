@@ -60,8 +60,10 @@ public class SoulscorchClient implements ClientModInitializer {
         BlockRenderLayerMap.putBlock(SeepingBlocks.SEEPING_LEAVES, ChunkSectionLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.SEEPING_SALLOW_SAPLING, ChunkSectionLayer.CUTOUT);
         BlockEntityRenderers.register(ModBlockEntities.SEEPING_SIGN, SignRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntities.SALLOW_SIGN, SignRenderer::new);
 
         TerraformBoatClientHelper.registerModelLayers(ModBoats.SEEPING);
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.SALLOW);
         TerraformBoatClientHelper.registerModelLayers(ModBoats.CRIMSON);
         TerraformBoatClientHelper.registerModelLayers(ModBoats.WARPED);
 
@@ -87,5 +89,8 @@ public class SoulscorchClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_DRIP_FALL, SeepingDripParticle.FallProvider::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_DRIP_LAND, SeepingDripParticle.LandProvider::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_SALLOW_LEAVES, FallingLeavesParticle.CherryProvider::new);
+
+        Soulscorch.LOGGER.info("Sallow sign material: " + Sheets.getSignMaterial(ModWoodTypes.SALLOW));
+        Soulscorch.LOGGER.info("Sallow hanging sign material: " + Sheets.getHangingSignMaterial(ModWoodTypes.SALLOW));
     }
 }

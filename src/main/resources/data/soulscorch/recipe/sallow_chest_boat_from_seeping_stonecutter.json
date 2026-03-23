@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:seeping_chest_boat",
+  "result": {
+    "id": "soulscorch:sallow_chest_boat",
+    "count": 1
+  }
+}

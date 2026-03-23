@@ -9,7 +9,8 @@ import java.util.Map;
 public class ModBlockSets {
     private static final Map<String, BlockSetType> TYPES = new Object2ObjectArrayMap();
 
-    public static final BlockSetType SEEPING_SALLOW = register(new BlockSetType("seeping_sallow"));
+    public static final BlockSetType SEEPING = register(new BlockSetType("seeping_sallow"));
+    public static final BlockSetType SALLOW = register(new BlockSetType("sallow"));
 
     private static BlockSetType register(BlockSetType type) {
         TYPES.put(type.name(), type);

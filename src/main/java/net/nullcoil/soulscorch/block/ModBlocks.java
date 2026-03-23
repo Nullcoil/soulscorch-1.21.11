@@ -112,5 +112,6 @@ public class ModBlocks {
     public static void register() {
         Soulscorch.LOGGER.info("Registering Mod Blocks for " + Soulscorch.MOD_ID);
         SeepingBlocks.register();
+        SallowBlocks.register();
     }
 }

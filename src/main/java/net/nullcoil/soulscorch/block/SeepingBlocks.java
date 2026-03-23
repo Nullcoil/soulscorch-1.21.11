@@ -2,7 +2,6 @@ package net.nullcoil.soulscorch.block;
 
 import com.terraformersmc.terraform.sign.api.block.TerraformSignBlockHelper;
 import net.minecraft.core.Registry;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
@@ -11,7 +10,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -78,14 +76,14 @@ public class SeepingBlocks {
                     .sound(SoundType.WOOD));
 
     public static final Block SEEPING_BUTTON = registerBlock("seeping_button",
-            properties -> new SeepingButton(ModBlockSets.SEEPING_SALLOW, 30, properties), BlockBehaviour.Properties.of()
+            properties -> new SeepingButton(ModBlockSets.SEEPING, 30, properties), BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(2f)
                     .sound(SoundType.WOOD));
 
     public static final Block SEEPING_DOOR = registerBlock("seeping_door",
-            properties -> new SeepingDoor(ModBlockSets.SEEPING_SALLOW, properties), BlockBehaviour.Properties.of()
+            properties -> new SeepingDoor(ModBlockSets.SEEPING, properties), BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(2f)
@@ -99,14 +97,14 @@ public class SeepingBlocks {
                     .sound(SoundType.WOOD));
 
     public static final Block SEEPING_FENCE_GATE = registerBlock("seeping_fence_gate",
-            properties -> new SeepingFenceGate(ModWoodTypes.SEEPING_SALLOW, properties), BlockBehaviour.Properties.of()
+            properties -> new SeepingFenceGate(ModWoodTypes.SEEPING, properties), BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(2f)
                     .sound(SoundType.WOOD));
 
     public static final Block SEEPING_PRESSURE_PLATE = registerBlock("seeping_pressure_plate",
-            properties -> new SeepingPressurePlate(ModBlockSets.SEEPING_SALLOW, properties), BlockBehaviour.Properties.of()
+            properties -> new SeepingPressurePlate(ModBlockSets.SEEPING, properties), BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(2f)
@@ -127,37 +125,33 @@ public class SeepingBlocks {
                     .sound(SoundType.WOOD));
 
     public static final Block SEEPING_TRAPDOOR = registerBlock("seeping_trapdoor",
-            properties -> new SeepingTrapdoor(ModBlockSets.SEEPING_SALLOW, properties), BlockBehaviour.Properties.of()
+            properties -> new SeepingTrapdoor(ModBlockSets.SEEPING, properties), BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(2f)
                     .sound(SoundType.WOOD));
 
-    public static final Identifier SEEPING_SIGN_TEXTURE = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "entity/signs/seeping_sallow");
-    public static final Identifier SEEPING_HANGING_SIGN_TEXTURE = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "entity/signs/hanging/seeping_sallow");
-    public static final Identifier SEEPING_HANGING_SIGN_GUI = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "textures/gui/hanging_signs/seeping_sallow");
-
     public static final Block SEEPING_WALL_SIGN = TerraformSignBlockHelper.registerSignBlock(
             Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "seeping_wall_sign"),
-            properties -> new SeepingWallSign(ModWoodTypes.SEEPING_SALLOW, properties),
+            properties -> new SeepingWallSign(ModWoodTypes.SEEPING, properties),
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).forceSolidOn()
                     .instrument(NoteBlockInstrument.BASS).noCollision().strength(1f));
 
     public static final Block SEEPING_SIGN = TerraformSignBlockHelper.registerSignBlock(
             Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "seeping_sign"),
-            properties -> new SeepingSign(ModWoodTypes.SEEPING_SALLOW, properties),
+            properties -> new SeepingSign(ModWoodTypes.SEEPING, properties),
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).forceSolidOn()
                     .instrument(NoteBlockInstrument.BASS).noCollision().strength(1f));
 
     public static final Block SEEPING_WALL_HANGING_SIGN = TerraformSignBlockHelper.registerSignBlock(
             Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "seeping_wall_hanging_sign"),
-            properties -> new SeepingWallHangingSign(ModWoodTypes.SEEPING_SALLOW, properties),
+            properties -> new SeepingWallHangingSign(ModWoodTypes.SEEPING, properties),
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).forceSolidOn()
                     .instrument(NoteBlockInstrument.BASS).noCollision().strength(1f));
 
     public static final Block SEEPING_HANGING_SIGN = TerraformSignBlockHelper.registerSignBlock(
             Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, "seeping_hanging_sign"),
-            properties -> new SeepingHangingSign(ModWoodTypes.SEEPING_SALLOW, properties),
+            properties -> new SeepingHangingSign(ModWoodTypes.SEEPING, properties),
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).forceSolidOn()
                     .instrument(NoteBlockInstrument.BASS).noCollision().strength(1f));
 
