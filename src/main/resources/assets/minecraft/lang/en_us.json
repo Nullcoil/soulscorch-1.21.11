@@ -2,6 +2,7 @@
   "subtitles.particle.soul_escape": "Souls whisper",
   "subtitles.block.copper_bulb.turn_off": "Bulb turns off",
   "subtitles.block.copper_bulb.turn_on": "Bulb turns on",
+  "subtitles.block.beehive.drip": "Viscous fluid drips",
   "advancements.adventure.avoid_vibration.description": "Sneak near a Sculk Sensor, Warden, or other listening block to prevent detection",
 
   "item.minecraft.tipped_arrow.effect.soul_rendering": "Tipped Arrow of Soul Rendering",
