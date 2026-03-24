@@ -322,7 +322,7 @@ public class BlaztEntity extends Mob implements Enemy {
                     if (target instanceof Player player && player.isBlocking()) {
                         this.blazt.level().playSound(null, player.blockPosition(), SoundEvents.SHIELD_BLOCK.value(), SoundSource.PLAYERS, 1f, 0.8f + this.blazt.getRandom().nextFloat() * 0.4f);
                         this.blazt.setStunned(true);
-                        this.stunTimer = 60;
+                        this.stunTimer = 15;
                         this.blazt.setDeltaMovement(this.blazt.getDeltaMovement().scale(-0.5D));
                     } else {
                         target.hurt(this.blazt.damageSources().mobAttack(this.blazt), (float) this.blazt.getAttributeValue(Attributes.ATTACK_DAMAGE));

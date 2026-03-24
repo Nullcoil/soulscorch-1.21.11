@@ -113,7 +113,7 @@ public class RestlessEntity extends Monster implements Enemy, HoglinBase {
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource source) { return ModSounds.SOULLESS_HURT; }
+    protected SoundEvent getHurtSound(DamageSource source) { return ModSounds.RESTLESS_HURT; }
 
     @Override
     protected SoundEvent getDeathSound() { return ModSounds.RESTLESS_DEATH; }

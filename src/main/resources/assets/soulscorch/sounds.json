@@ -23,6 +23,12 @@
       "soulscorch:blazt_shooting"
     ]
   },
+  "blazt_soul_charge": {
+    "subtitle": "sounds.soulscorch.blazt_soul_charge",
+    "sounds": [
+      "soulscorch:blazt_soul_charge"
+    ]
+  },
   "blazt_breathe_in": {
     "subtitle": "sounds.soulscorch.blazt_breathe_in",
     "sounds": [
@@ -96,6 +102,13 @@
       "soulscorch:restless_hurt0",
       "soulscorch:restless_hurt1",
       "soulscorch:restless_hurt2"
+    ]
+  },
+
+  "ethel_spin": {
+    "subtitle": "sounds.soulscorch.ethel_spin",
+    "sounds": [
+      "soulscorch:ethel_spin"
     ]
   }
 }
