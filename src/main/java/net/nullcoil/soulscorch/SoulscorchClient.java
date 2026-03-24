@@ -89,8 +89,5 @@ public class SoulscorchClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_DRIP_FALL, SeepingDripParticle.FallProvider::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_DRIP_LAND, SeepingDripParticle.LandProvider::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.SEEPING_SALLOW_LEAVES, FallingLeavesParticle.CherryProvider::new);
-
-        Soulscorch.LOGGER.info("Sallow sign material: " + Sheets.getSignMaterial(ModWoodTypes.SALLOW));
-        Soulscorch.LOGGER.info("Sallow hanging sign material: " + Sheets.getHangingSignMaterial(ModWoodTypes.SALLOW));
     }
 }

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(ItemBlockRenderTypes.class)
+@Mixin(value = ItemBlockRenderTypes.class, priority = 9999)
 public class ItemBlockRenderTypesMixin {
 
     @Inject(
