@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    "soulscorch:stripped_seeping_log"
+    "#soulscorch:seeping_logs"
   ],
   "result": {
     "id": "soulscorch:seeping_planks",

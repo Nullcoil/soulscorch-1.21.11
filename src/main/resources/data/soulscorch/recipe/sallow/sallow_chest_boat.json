@@ -1,11 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    "minecraft:honeycomb",
-    "soulscorch:soul_cream"
+    "soulscorch:sallow_planks",
+    "minecraft:chest"
   ],
   "result": {
-    "id": "soulscorch:avalcomb",
+    "id": "soulscorch:sallow_chest_boat",
     "count": 1
   }
 }

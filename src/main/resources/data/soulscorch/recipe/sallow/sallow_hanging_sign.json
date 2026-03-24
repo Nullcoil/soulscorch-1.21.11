@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": "soulscorch:stripped_sallow_log",
+    "C": "minecraft:iron_chain"
+  },
+  "pattern": [
+    "C C",
+    "SSS",
+    "SSS"
+  ],
+  "result": {
+    "count": 6,
+    "id": "soulscorch:sallow_hanging_sign"
+  }
+}

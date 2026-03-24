@@ -37,7 +37,8 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> SOULBASED_ITEMS = createTag("soulstuff");
-        public static final TagKey<Item> SEEPING_SALLOW_ITEMS = createTag("seeping_sallow_blocks");
+        public static final TagKey<Item> SEEPING_SALLOW_ITEMS = createTag("seeping_sallow_items");
+        public static final TagKey<Item> SEEPING_SALLOW_BLOCKS = createTag("seeping_sallow_blocks");
         public static final TagKey<Item> SEEPING_SALLOW_BUTTONS = createTag("seeping_sallow_buttons");
         public static final TagKey<Item> SEEPING_SALLOW_DOORS = createTag("seeping_sallow_doors");
         public static final TagKey<Item> SEEPING_SALLOW_FENCE_GATES = createTag("seeping_sallow_fence_gates");
@@ -48,11 +49,14 @@ public class ModTags {
         public static final TagKey<Item> SEEPING_SALLOW_PRESSURE_PLATES = createTag("seeping_sallow_pressure_plates");
         public static final TagKey<Item> SEEPING_SALLOW_SLABS = createTag("seeping_sallow_slabs");
         public static final TagKey<Item> SEEPING_SALLOW_STAIRS = createTag("seeping_sallow_stairs");
-        public static final TagKey<Item> SEEPING_SALLOW_STANDING_SIGNS = createTag("seeping_sallow_standing_signs");
+        public static final TagKey<Item> SEEPING_SALLOW_STANDING_SIGNS = createTag("seeping_sallow_signs");
         public static final TagKey<Item> SEEPING_SALLOW_TRAPDOORS = createTag("seeping_sallow_trapdoors");
         public static final TagKey<Item> SEEPING_SALLOW_SHELVES = createTag("seeping_sallow_shelves");
         public static final TagKey<Item> SEEPING_SALLOW_BOATS = createTag("seeping_sallow_boats");
         public static final TagKey<Item> NETHER_BOATS = createTag("nether_boats");
+
+        public static final TagKey<Item> SALLOW_LOGS = createTag("sallow_logs");
+        public static final TagKey<Item> SEEPING_LOGS = createTag("seeping_logs");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, name));

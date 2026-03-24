@@ -3,14 +3,15 @@
   "category": "misc",
   "key": {
     "#": "soulscorch:seeping_planks",
-    "/": "minecraft:stick"
+    "$": "minecraft:stick"
   },
   "pattern": [
-    "/#/",
-    "/#/"
+    "###",
+    "###",
+    " $ "
   ],
   "result": {
-    "count": 1,
-    "id": "soulscorch:seeping_fence_gate"
+    "count": 3,
+    "id": "soulscorch:seeping_sign"
   }
 }

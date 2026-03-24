@@ -1,10 +1,10 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    "soulscorch:seeping_log"
+    "soulscorch:sallow_planks"
   ],
   "result": {
-    "id": "soulscorch:seeping_planks",
-    "count": 4
+    "id": "soulscorch:sallow_button",
+    "count": 1
   }
 }

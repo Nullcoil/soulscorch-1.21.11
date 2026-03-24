@@ -1,12 +1,6 @@
 {
   "values": [
-    "soulscorch:seeping_log",
-    "soulscorch:seeping_wood",
-    "soulscorch:stripped_seeping_log",
-    "soulscorch:stripped_seeping_wood",
-    "soulscorch:sallow_log",
-    "soulscorch:sallow_wood",
-    "soulscorch:stripped_sallow_log",
-    "soulscorch:stripped_sallow_wood"
+    "#soulscorch:sallow_logs",
+    "#soulscorch:seeping_logs"
   ]
 }

@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "soulscorch:seeping_planks"
+    "#": "soulscorch:sallow_planks"
   },
   "pattern": [
-    "#",
-    "#"
+    "###",
+    "###"
   ],
   "result": {
-    "count": 4,
-    "id": "soulscorch:seeping_fence"
+    "count": 2,
+    "id": "soulscorch:sallow_door"
   }
 }

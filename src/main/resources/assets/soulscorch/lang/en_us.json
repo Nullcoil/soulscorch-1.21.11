@@ -174,6 +174,7 @@
 
   "tag.item.soulscorch.soulstuff": "Soul Stuff",
   "tag.item.soulscorch.seeping_sallow_items": "Seeping Sallow Items",
+  "tag.item.soulscorch.seeping_sallow_blocks": "Seeping Sallow Blocks",
   "tag.item.soulscorch.seeping_sallow_buttons": "Seeping Sallow Buttons",
   "tag.item.soulscorch.seeping_sallow_doors": "Seeping Sallow Doors",
   "tag.item.soulscorch.seeping_sallow_fence_gates": "Seeping Sallow Fence Gates",
@@ -184,11 +185,14 @@
   "tag.item.soulscorch.seeping_sallow_pressure_plates": "Seeping Sallow Pressure Plates",
   "tag.item.soulscorch.seeping_sallow_slabs": "Seeping Sallow Slabs",
   "tag.item.soulscorch.seeping_sallow_stairs": "Seeping Sallow Stairs",
-  "tag.item.soulscorch.seeping_sallow_standing_signs": "Seeping Sallow Standing Signs",
+  "tag.item.soulscorch.seeping_sallow_signs": "Seeping Sallow Signs",
   "tag.item.soulscorch.seeping_sallow_trapdoors": "Seeping Sallow Trapdoors",
   "tag.item.soulscorch.seeping_sallow_shelves": "Seeping Sallow Shelves",
   "tag.item.soulscorch.seeping_sallow_boats": "Seeping Sallow Boats",
   "tag.item.soulscorch.nether_boats": "Nether Boats",
+
+  "tag.item.soulscorch.sallow_logs": "Sallow Logs",
+  "tag.item.soulscorch.seeping_logs": "Seeping Logs",
 
   "tag.entity_type.soulscorch.soulscorch_entities": "Soulscorch Entities",
   "tag.entity_type.soulscorch.phobias_of_piglins": "Phobias of Piglins",
