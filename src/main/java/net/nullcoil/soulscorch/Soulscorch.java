@@ -2,6 +2,7 @@ package net.nullcoil.soulscorch;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.nullcoil.soulscorch.advancement.ModCriteriaTriggers;
 import net.nullcoil.soulscorch.alchemy.ModAlchemy;
 import net.nullcoil.soulscorch.block.ModBlockEntities;
 import net.nullcoil.soulscorch.block.ModBlocks;
@@ -42,6 +43,7 @@ public class Soulscorch implements ModInitializer {
 		ModWorldGen.generate();
 		ModEnchantments.register();
 		ModParticles.register();
+		ModCriteriaTriggers.register();
 
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
 				SampleBiomeCommand.register(dispatcher));
