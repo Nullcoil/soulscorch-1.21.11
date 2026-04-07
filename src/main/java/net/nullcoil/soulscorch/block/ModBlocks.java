@@ -1,7 +1,6 @@
 package net.nullcoil.soulscorch.block;
 
 import net.minecraft.core.Registry;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -18,7 +17,6 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.nullcoil.soulscorch.Soulscorch;
 import net.nullcoil.soulscorch.block.custom.*;
-import net.nullcoil.soulscorch.particles.ModParticles;
 
 import java.util.function.Function;
 

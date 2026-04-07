@@ -1,11 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    "soulscorch:sallow_boat",
+    "soulscorch:warped_boat",
     "minecraft:chest"
   ],
   "result": {
-    "id": "soulscorch:sallow_chest_boat",
+    "id": "soulscorch:warped_chest_boat",
     "count": 1
   }
 }

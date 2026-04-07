@@ -110,7 +110,7 @@ public class ModItems {
     // 2. The completed helper method
     private static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         // Build the Identifier
-        Identifier id = Identifier.tryBuild(Soulscorch.MOD_ID, name);
+        Identifier id = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, name);
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, id);
 
         Item item = factory.apply(properties.setId(itemKey));
@@ -118,7 +118,7 @@ public class ModItems {
     }
 
     private static Item registerItem(String name, Block block, BiFunction<Block, Item.Properties, Item> factory, Item.Properties properties) {
-        Identifier id = Identifier.tryBuild(Soulscorch.MOD_ID, name);
+        Identifier id = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, name);
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, id);
 
         // Applies both the block and the modified properties to the constructor

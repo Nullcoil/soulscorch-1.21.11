@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    "soulscorch:seeping_planks",
+    "soulscorch:seeping_boat",
     "minecraft:chest"
   ],
   "result": {
