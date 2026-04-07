@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:sallow_planks",
+  "result": {
+    "id": "soulscorch:seeping_planks",
+    "count": 1
+  }
+}

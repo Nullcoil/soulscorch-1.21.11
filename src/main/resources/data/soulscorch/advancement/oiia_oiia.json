@@ -1,0 +1,18 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:soul_sand"
+    },
+    "title": { "text": "oiia oiia" },
+    "description": { "text": "Breed two tamed cats in the Soul Sand Valley" },
+    "frame": "challenge",
+    "announce_to_chat": true,
+    "show_toast": true
+  },
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "oiia_oiia": {
+      "trigger": "soulscorch:oiia_oiia"
+    }
+  }
+}

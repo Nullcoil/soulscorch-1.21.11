@@ -1,0 +1,23 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "soulscorch:seeping_sallow_sapling",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soulscorch:avalcomb",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 65
+        }
+      ]
+    }
+  ]
+}

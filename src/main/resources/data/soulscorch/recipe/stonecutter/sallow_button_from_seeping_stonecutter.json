@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:seeping_button",
+  "result": {
+    "id": "soulscorch:sallow_button",
+    "count": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "soulscorch:ghost_pepper",
+    "minecraft:honey_bottle"
+  ],
+  "result": {
+    "id": "soulscorch:candied_ghost_pepper",
+    "count": 1
+  }
+}

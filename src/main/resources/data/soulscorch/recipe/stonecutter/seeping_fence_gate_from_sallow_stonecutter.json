@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:sallow_fence_gate",
+  "result": {
+    "id": "soulscorch:seeping_fence_gate",
+    "count": 1
+  }
+}

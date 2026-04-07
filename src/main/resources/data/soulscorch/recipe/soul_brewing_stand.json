@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:basalt",
+    "S": "soulscorch:blazt_rod"
+  },
+  "pattern": [
+    " S ",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "soulscorch:soul_brewing_stand"
+  }
+}

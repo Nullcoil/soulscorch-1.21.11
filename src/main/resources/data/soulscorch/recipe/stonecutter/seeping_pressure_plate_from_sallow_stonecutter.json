@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:sallow_pressure_plate",
+  "result": {
+    "id": "soulscorch:seeping_pressure_plate",
+    "count": 1
+  }
+}

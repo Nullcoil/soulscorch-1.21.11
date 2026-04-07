@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "soulscorch:seeping_planks",
+    "minecraft:chest"
+  ],
+  "result": {
+    "id": "soulscorch:seeping_chest_raft",
+    "count": 1
+  }
+}

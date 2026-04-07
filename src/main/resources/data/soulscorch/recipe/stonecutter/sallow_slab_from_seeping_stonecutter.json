@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:seeping_slab",
+  "result": {
+    "id": "soulscorch:sallow_slab",
+    "count": 1
+  }
+}

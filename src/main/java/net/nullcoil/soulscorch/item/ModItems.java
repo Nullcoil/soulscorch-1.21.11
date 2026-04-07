@@ -1,0 +1,217 @@
+package net.nullcoil.soulscorch.item;
+
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
+import net.nullcoil.soulscorch.Soulscorch;
+import net.nullcoil.soulscorch.block.ModBlocks;
+import net.nullcoil.soulscorch.block.SallowBlocks;
+import net.nullcoil.soulscorch.block.SeepingBlocks;
+import net.nullcoil.soulscorch.entity.ModBoats;
+import net.nullcoil.soulscorch.entity.ModEntities;
+import net.nullcoil.soulscorch.item.custom.CandiedGhostPepperItem;
+import net.nullcoil.soulscorch.item.custom.GhostPepperItem;
+import net.nullcoil.soulscorch.item.custom.SoulwardTotemItem;
+
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
+public class ModItems {
+    public static final Item BLAZT_POWDER = registerItem(
+            "blazt_powder", Item::new, new Item.Properties()
+    );
+    public static final Item BLAZT_ROD = registerItem(
+            "blazt_rod", Item::new, new Item.Properties()
+    );
+    public static final Item SOUL_CREAM = registerItem(
+            "soul_cream", Item::new, new Item.Properties()
+    );
+    public static final Item SOUL_CHARGE = registerItem(
+            "soul_charge", FireChargeItem::new, new Item.Properties()
+    );
+    public static final Item SOUL_SHARD = registerItem(
+            "soul_shard", Item::new, new Item.Properties()
+    );
+    public static final Item SOULWARD_TOTEM = registerItem(
+            "soulward_totem", SoulwardTotemItem::new, new Item.Properties().stacksTo(1)
+    );
+    public static final Item SOULLESS_SPAWN_EGG = registerItem(
+            "soulless_spawn_egg",
+            SpawnEggItem::new,
+            new Item.Properties().spawnEgg(ModEntities.SOULLESS)
+    );
+    public static final Item BLAZT_SPAWN_EGG = registerItem(
+            "blazt_spawn_egg",
+            SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.BLAZT)
+    );
+    public static final Item RESTLESS_SPAWN_EGG = registerItem(
+            "restless_spawn_egg",
+            SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.RESTLESS)
+    );
+    public static final Item HYTODOM_SPAWN_EGG = registerItem(
+            "hytodom_spawn_egg",
+            SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.HYTODOM)
+    );
+    public static final Item SOULCAT_SPAWN_EGG = registerItem(
+            "soulcat_spawn_egg",
+            SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.SOULBORNE_CAT)
+    );
+    public static final Item SOULWOLF_SPAWN_EGG = registerItem(
+            "soulwolf_spawn_egg",
+            SpawnEggItem::new, new Item.Properties().spawnEgg(ModEntities.SOULBORNE_WOLF)
+    );
+
+    public static final Item GHOST_PEPPER = registerItem("ghost_pepper",
+            ModBlocks.GHOST_PEPPER_SHRUB, // <-- Pass the shrub block here!
+            GhostPepperItem::new,
+            new Item.Properties().food(
+                    new FoodProperties.Builder()
+                            .nutrition(2)
+                            .saturationModifier(0.2f)
+                            .alwaysEdible()
+                            .build()
+            ));
+    public static final Item CANDIED_GHOST_PEPPER = registerItem("candied_ghost_pepper",
+            CandiedGhostPepperItem::new, new Item.Properties().food(
+                    new FoodProperties.Builder()
+                            .nutrition(8)
+                            .saturationModifier(.2f)
+                            .alwaysEdible()
+                            .build())
+            );
+
+    public static final Item SEEPING_SIGN = registerItem("seeping_sign",
+            properties -> new SignItem(SeepingBlocks.SEEPING_SIGN, SeepingBlocks.SEEPING_WALL_SIGN, properties),
+            new Item.Properties().stacksTo(16)
+    );
+
+    public static final Item SEEPING_HANGING_SIGN = registerItem("seeping_hanging_sign",
+            properties -> new HangingSignItem(SeepingBlocks.SEEPING_HANGING_SIGN, SeepingBlocks.SEEPING_WALL_HANGING_SIGN, properties),
+            new Item.Properties().stacksTo(16)
+    );
+    public static final Item SALLOW_SIGN = registerItem("sallow_sign",
+            properties -> new SignItem(SallowBlocks.SALLOW_SIGN, SallowBlocks.SALLOW_WALL_SIGN, properties),
+            new Item.Properties().stacksTo(16)
+    );
+
+    public static final Item SALLOW_HANGING_SIGN = registerItem("sallow_hanging_sign",
+            properties -> new HangingSignItem(SallowBlocks.SALLOW_HANGING_SIGN, SallowBlocks.SALLOW_WALL_HANGING_SIGN, properties),
+            new Item.Properties().stacksTo(16)
+    );
+
+    public static final Item AVALCOMB = registerItem("avalcomb", Item::new, new Item.Properties());
+
+    // 2. The completed helper method
+    private static Item registerItem(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
+        // Build the Identifier
+        Identifier id = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, name);
+        ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, id);
+
+        Item item = factory.apply(properties.setId(itemKey));
+        return Registry.register(BuiltInRegistries.ITEM, itemKey, item);
+    }
+
+    private static Item registerItem(String name, Block block, BiFunction<Block, Item.Properties, Item> factory, Item.Properties properties) {
+        Identifier id = Identifier.fromNamespaceAndPath(Soulscorch.MOD_ID, name);
+        ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, id);
+
+        // Applies both the block and the modified properties to the constructor
+        Item item = factory.apply(block, properties.setId(itemKey));
+        return Registry.register(BuiltInRegistries.ITEM, itemKey, item);
+    }
+
+    // Call this in your Soulscorch.java onInitialize() method!
+    public static void register() {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {
+            entries.accept(BLAZT_POWDER);
+            entries.accept(BLAZT_ROD);
+            entries.accept(SOUL_CREAM);
+            entries.accept(SOUL_CHARGE);
+            entries.accept(SOUL_SHARD);
+            entries.accept(AVALCOMB);
+        });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
+            entries.accept(SOULWARD_TOTEM);
+            entries.accept(ModBoats.CRIMSON_BOAT);
+            entries.accept(ModBoats.CRIMSON_CHEST_BOAT);
+            entries.accept(ModBoats.WARPED_BOAT);
+            entries.accept(ModBoats.WARPED_CHEST_BOAT);
+            entries.accept(ModBoats.SEEPING_BOAT);
+            entries.accept(ModBoats.SEEPING_CHEST_BOAT);
+            entries.accept(ModBoats.SALLOW_BOAT);
+            entries.accept(ModBoats.SALLOW_CHEST_BOAT);
+        });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
+            entries.accept(ModBlocks.SOUL_BREWING_STAND);
+            entries.accept(ModBlocks.IRON_BULB_BLOCK);
+            entries.accept(ModBlocks.CERULEAN_FROGLIGHT);
+            entries.accept(ModBlocks.SOUL_SLAG_BLOCK);
+            entries.accept(SEEPING_SIGN);
+            entries.accept(SEEPING_HANGING_SIGN);
+            entries.accept(SALLOW_SIGN);
+            entries.accept(SALLOW_HANGING_SIGN);
+        });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(entries -> {
+            entries.accept(ModBlocks.IRON_BULB_BLOCK);
+        });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
+            entries.accept(ModBlocks.CERULEAN_FROGLIGHT);
+            entries.accept(ModBlocks.SOUL_SLAG_BLOCK);
+            entries.accept(SeepingBlocks.SEEPING_LEAVES);
+            entries.accept(ModBlocks.SEEPING_SALLOW_SAPLING);
+        });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(entries -> {
+            entries.accept(SOULLESS_SPAWN_EGG);
+            entries.accept(BLAZT_SPAWN_EGG);
+            entries.accept(RESTLESS_SPAWN_EGG);
+            entries.accept(HYTODOM_SPAWN_EGG);
+            entries.accept(SOULCAT_SPAWN_EGG);
+            entries.accept(SOULWOLF_SPAWN_EGG);
+        });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
+            entries.accept(GHOST_PEPPER);
+            entries.accept(CANDIED_GHOST_PEPPER);
+        });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
+            entries.accept(SeepingBlocks.SEEPING_LOG);
+            entries.accept(SeepingBlocks.SEEPING_WOOD);
+            entries.accept(SeepingBlocks.SEEPING_PLANKS);
+            entries.accept(SeepingBlocks.STRIPPED_SEEPING_LOG);
+            entries.accept(SeepingBlocks.STRIPPED_SEEPING_WOOD);
+            entries.accept(SeepingBlocks.SEEPING_BUTTON);
+            entries.accept(SeepingBlocks.SEEPING_DOOR);
+            entries.accept(SeepingBlocks.SEEPING_FENCE);
+            entries.accept(SeepingBlocks.SEEPING_FENCE_GATE);
+            entries.accept(SeepingBlocks.SEEPING_PRESSURE_PLATE);
+            entries.accept(SeepingBlocks.SEEPING_SLAB);
+            entries.accept(SeepingBlocks.SEEPING_STAIRS);
+            entries.accept(SeepingBlocks.SEEPING_TRAPDOOR);
+            entries.accept(SEEPING_SIGN);
+            entries.accept(SEEPING_HANGING_SIGN);
+            entries.accept(SallowBlocks.SALLOW_LOG);
+            entries.accept(SallowBlocks.SALLOW_WOOD);
+            entries.accept(SallowBlocks.SALLOW_PLANKS);
+            entries.accept(SallowBlocks.STRIPPED_SALLOW_LOG);
+            entries.accept(SallowBlocks.STRIPPED_SALLOW_WOOD);
+            entries.accept(SallowBlocks.SALLOW_BUTTON);
+            entries.accept(SallowBlocks.SALLOW_DOOR);
+            entries.accept(SallowBlocks.SALLOW_FENCE);
+            entries.accept(SallowBlocks.SALLOW_FENCE_GATE);
+            entries.accept(SallowBlocks.SALLOW_PRESSURE_PLATE);
+            entries.accept(SallowBlocks.SALLOW_SLAB);
+            entries.accept(SallowBlocks.SALLOW_STAIRS);
+            entries.accept(SallowBlocks.SALLOW_TRAPDOOR);
+            entries.accept(SALLOW_SIGN);
+            entries.accept(SALLOW_HANGING_SIGN);
+            entries.accept(ModBlocks.IRON_BULB_BLOCK);
+        });
+
+        Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);
+    }
+}

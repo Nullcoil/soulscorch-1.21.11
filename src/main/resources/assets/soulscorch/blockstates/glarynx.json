@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "facing=down,state=cooldown": { "model": "soulscorch:block/glarynx_cooldown", "x": 180 },
+    "facing=up,state=cooldown": { "model": "soulscorch:block/glarynx_cooldown" },
+    "facing=north,state=cooldown": { "model": "soulscorch:block/glarynx_cooldown", "x": 90 },
+    "facing=south,state=cooldown": { "model": "soulscorch:block/glarynx_cooldown", "x": 90, "y": 180 },
+    "facing=west,state=cooldown": { "model": "soulscorch:block/glarynx_cooldown", "x": 90, "y": 270 },
+    "facing=east,state=cooldown": { "model": "soulscorch:block/glarynx_cooldown", "x": 90, "y": 90 },
+
+    "facing=down,state=sleepy": { "model": "soulscorch:block/glarynx_sleepy", "x": 180 },
+    "facing=up,state=sleepy": { "model": "soulscorch:block/glarynx_sleepy" },
+    "facing=north,state=sleepy": { "model": "soulscorch:block/glarynx_sleepy", "x": 90 },
+    "facing=south,state=sleepy": { "model": "soulscorch:block/glarynx_sleepy", "x": 90, "y": 180 },
+    "facing=west,state=sleepy": { "model": "soulscorch:block/glarynx_sleepy", "x": 90, "y": 270 },
+    "facing=east,state=sleepy": { "model": "soulscorch:block/glarynx_sleepy", "x": 90, "y": 90 },
+
+    "facing=down,state=watchful": { "model": "soulscorch:block/glarynx_watchful", "x": 180 },
+    "facing=up,state=watchful": { "model": "soulscorch:block/glarynx_watchful" },
+    "facing=north,state=watchful": { "model": "soulscorch:block/glarynx_watchful", "x": 90 },
+    "facing=south,state=watchful": { "model": "soulscorch:block/glarynx_watchful", "x": 90, "y": 180 },
+    "facing=west,state=watchful": { "model": "soulscorch:block/glarynx_watchful", "x": 90, "y": 270 },
+    "facing=east,state=watchful": { "model": "soulscorch:block/glarynx_watchful", "x": 90, "y": 90 },
+
+    "facing=down,state=seeing": { "model": "soulscorch:block/glarynx_seeing", "x": 180 },
+    "facing=up,state=seeing": { "model": "soulscorch:block/glarynx_seeing" },
+    "facing=north,state=seeing": { "model": "soulscorch:block/glarynx_seeing", "x": 90 },
+    "facing=south,state=seeing": { "model": "soulscorch:block/glarynx_seeing", "x": 90, "y": 180 },
+    "facing=west,state=seeing": { "model": "soulscorch:block/glarynx_seeing", "x": 90, "y": 270 },
+    "facing=east,state=seeing": { "model": "soulscorch:block/glarynx_seeing", "x": 90, "y": 90 },
+
+    "facing=down,state=screaming": { "model": "soulscorch:block/glarynx_screaming", "x": 180 },
+    "facing=up,state=screaming": { "model": "soulscorch:block/glarynx_screaming" },
+    "facing=north,state=screaming": { "model": "soulscorch:block/glarynx_screaming", "x": 90 },
+    "facing=south,state=screaming": { "model": "soulscorch:block/glarynx_screaming", "x": 90, "y": 180 },
+    "facing=west,state=screaming": { "model": "soulscorch:block/glarynx_screaming", "x": 90, "y": 270 },
+    "facing=east,state=screaming": { "model": "soulscorch:block/glarynx_screaming", "x": 90, "y": 90 }
+  }
+}

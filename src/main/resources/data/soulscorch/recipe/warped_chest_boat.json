@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "soulscorch:warped_raft",
+    "minecraft:chest"
+  ],
+  "result": {
+    "id": "soulscorch:warped_chest_raft",
+    "count": 1
+  }
+}

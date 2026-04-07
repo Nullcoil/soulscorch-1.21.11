@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:stripped_sallow_log",
+  "result": {
+    "id": "soulscorch:stripped_seeping_log",
+    "count": 1
+  }
+}

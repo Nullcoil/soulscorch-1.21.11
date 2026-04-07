@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:sallow_hanging_sign",
+  "result": {
+    "id": "soulscorch:seeping_hanging_sign",
+    "count": 1
+  }
+}

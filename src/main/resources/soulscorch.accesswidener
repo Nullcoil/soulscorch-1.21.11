@@ -1,0 +1,8 @@
+accessWidener v2 official
+
+accessible method net/minecraft/world/level/block/state/properties/WoodType register (Lnet/minecraft/world/level/block/state/properties/WoodType;)Lnet/minecraft/world/level/block/state/properties/WoodType;
+accessible method net/minecraft/world/entity/animal/feline/Cat getSoundVariant ()Lnet/minecraft/core/Holder;
+accessible method net/minecraft/client/model/monster/piglin/AbstractPiglinModel getDefaultEarAngleInDegrees ()F
+extendable method net/minecraft/client/model/monster/piglin/AbstractPiglinModel getDefaultEarAngleInDegrees ()F
+accessible class net/minecraft/client/gui/Gui$HeartType
+accessible method net/minecraft/world/level/block/Blocks postProcessAbove (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/BlockPos;

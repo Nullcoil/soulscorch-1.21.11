@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:seeping_raft",
+  "result": {
+    "id": "soulscorch:sallow_raft",
+    "count": 1
+  }
+}

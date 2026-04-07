@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:seeping_shelf",
+  "result": {
+    "id": "soulscorch:sallow_shelf",
+    "count": 1
+  }
+}

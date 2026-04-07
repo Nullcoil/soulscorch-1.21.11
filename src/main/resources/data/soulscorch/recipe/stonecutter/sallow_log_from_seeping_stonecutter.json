@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "soulscorch:seeping_log",
+  "result": {
+    "id": "soulscorch:sallow_log",
+    "count": 1
+  }
+}
