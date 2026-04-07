@@ -1,6 +1,7 @@
 package net.nullcoil.soulscorch.block;
 
 import com.terraformersmc.terraform.sign.api.block.TerraformSignBlockHelper;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -59,6 +60,8 @@ public class SallowBlocks {
     }
 
     public static void register() {
+        StrippableBlockRegistry.register(SALLOW_LOG, STRIPPED_SALLOW_LOG);
+        StrippableBlockRegistry.register(SALLOW_WOOD, STRIPPED_SALLOW_WOOD);
         BlockEntityType.SHELF.addSupportedBlock(SALLOW_SHELF);
         BlockEntityType.SIGN.addSupportedBlock(SALLOW_SIGN);
         BlockEntityType.SIGN.addSupportedBlock(SALLOW_WALL_SIGN);

@@ -1,6 +1,7 @@
 package net.nullcoil.soulscorch.block;
 
 import com.terraformersmc.terraform.sign.api.block.TerraformSignBlockHelper;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -196,6 +197,8 @@ public class SeepingBlocks {
     }
 
     public static void register() {
+        StrippableBlockRegistry.register(SEEPING_LOG, STRIPPED_SEEPING_LOG);
+        StrippableBlockRegistry.register(SEEPING_WOOD, STRIPPED_SEEPING_WOOD);
         BlockEntityType.SHELF.addSupportedBlock(SEEPING_SHELF);
         Soulscorch.LOGGER.info("Registering Seeping Blocks for " + Soulscorch.MOD_ID);
     }
