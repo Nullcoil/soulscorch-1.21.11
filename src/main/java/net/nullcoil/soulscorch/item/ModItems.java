@@ -129,42 +129,44 @@ public class ModItems {
     // Call this in your Soulscorch.java onInitialize() method!
     public static void register() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {
-            entries.accept(BLAZT_POWDER);
-            entries.accept(BLAZT_ROD);
-            entries.accept(SOUL_CREAM);
-            entries.accept(SOUL_CHARGE);
-            entries.accept(SOUL_SHARD);
-            entries.accept(AVALCOMB);
+            entries.insertAfter(Items.BLAZE_POWDER, BLAZT_POWDER);
+            entries.insertAfter(Items.BLAZE_ROD, BLAZT_ROD);
+            entries.insertAfter(Items.MAGMA_CREAM, SOUL_CREAM);
+            entries.insertAfter(Items.FIRE_CHARGE, SOUL_CHARGE);
+            entries.insertAfter(Items.BREEZE_ROD, SOUL_SHARD);
         });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
-            entries.accept(SOULWARD_TOTEM);
-            entries.accept(ModBoats.CRIMSON_BOAT);
-            entries.accept(ModBoats.CRIMSON_CHEST_BOAT);
-            entries.accept(ModBoats.WARPED_BOAT);
-            entries.accept(ModBoats.WARPED_CHEST_BOAT);
-            entries.accept(ModBoats.SEEPING_BOAT);
-            entries.accept(ModBoats.SEEPING_CHEST_BOAT);
-            entries.accept(ModBoats.SALLOW_BOAT);
-            entries.accept(ModBoats.SALLOW_CHEST_BOAT);
+            entries.insertAfter(Items.BAMBOO_RAFT,
+                    ModBoats.CRIMSON_BOAT,
+                    ModBoats.CRIMSON_CHEST_BOAT,
+                    ModBoats.WARPED_BOAT,
+                    ModBoats.WARPED_CHEST_BOAT,
+                    ModBoats.SEEPING_BOAT,
+                    ModBoats.SEEPING_CHEST_BOAT,
+                    ModBoats.SALLOW_BOAT,
+                    ModBoats.SALLOW_CHEST_BOAT);
+        });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> {
+            entries.insertAfter(Items.TOTEM_OF_UNDYING, SOULWARD_TOTEM);
         });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
-            entries.accept(ModBlocks.SOUL_BREWING_STAND);
-            entries.accept(ModBlocks.IRON_BULB_BLOCK);
-            entries.accept(ModBlocks.CERULEAN_FROGLIGHT);
-            entries.accept(ModBlocks.SOUL_SLAG_BLOCK);
-            entries.accept(SEEPING_SIGN);
-            entries.accept(SEEPING_HANGING_SIGN);
-            entries.accept(SALLOW_SIGN);
-            entries.accept(SALLOW_HANGING_SIGN);
+            entries.insertAfter(Items.BREWING_STAND, ModBlocks.SOUL_BREWING_STAND);
+            entries.insertBefore(Items.COPPER_BULB, ModBlocks.IRON_BULB_BLOCK);
+            entries.insertAfter(Items.PEARLESCENT_FROGLIGHT, ModBlocks.CERULEAN_FROGLIGHT);
+            entries.insertAfter(Items.WARPED_HANGING_SIGN,
+                    SEEPING_SIGN,
+                    SEEPING_HANGING_SIGN,
+                    SALLOW_SIGN,
+                    SALLOW_HANGING_SIGN);
         });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(entries -> {
-            entries.accept(ModBlocks.IRON_BULB_BLOCK);
+            entries.insertBefore(Items.WAXED_COPPER_BULB, ModBlocks.IRON_BULB_BLOCK);
         });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
-            entries.accept(ModBlocks.CERULEAN_FROGLIGHT);
-            entries.accept(ModBlocks.SOUL_SLAG_BLOCK);
-            entries.accept(SeepingBlocks.SEEPING_LEAVES);
-            entries.accept(ModBlocks.SEEPING_SALLOW_SAPLING);
+            entries.insertAfter(Items.PEARLESCENT_FROGLIGHT, ModBlocks.CERULEAN_FROGLIGHT);
+            entries.insertAfter(Items.MAGMA_BLOCK, ModBlocks.SOUL_SLAG_BLOCK);
+            entries.insertAfter(Items.FLOWERING_AZALEA_LEAVES, SeepingBlocks.SEEPING_LEAVES);
+            entries.insertAfter(Items.PALE_OAK_SAPLING, ModBlocks.SEEPING_SALLOW_SAPLING);
         });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(entries -> {
             entries.accept(SOULLESS_SPAWN_EGG);
@@ -175,41 +177,37 @@ public class ModItems {
             entries.accept(SOULWOLF_SPAWN_EGG);
         });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
-            entries.accept(GHOST_PEPPER);
-            entries.accept(CANDIED_GHOST_PEPPER);
+            entries.insertAfter(Items.BEETROOT, GHOST_PEPPER, CANDIED_GHOST_PEPPER);
         });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
-            entries.accept(SeepingBlocks.SEEPING_LOG);
-            entries.accept(SeepingBlocks.SEEPING_WOOD);
-            entries.accept(SeepingBlocks.SEEPING_PLANKS);
-            entries.accept(SeepingBlocks.STRIPPED_SEEPING_LOG);
-            entries.accept(SeepingBlocks.STRIPPED_SEEPING_WOOD);
-            entries.accept(SeepingBlocks.SEEPING_BUTTON);
-            entries.accept(SeepingBlocks.SEEPING_DOOR);
-            entries.accept(SeepingBlocks.SEEPING_FENCE);
-            entries.accept(SeepingBlocks.SEEPING_FENCE_GATE);
-            entries.accept(SeepingBlocks.SEEPING_PRESSURE_PLATE);
-            entries.accept(SeepingBlocks.SEEPING_SLAB);
-            entries.accept(SeepingBlocks.SEEPING_STAIRS);
-            entries.accept(SeepingBlocks.SEEPING_TRAPDOOR);
-            entries.accept(SEEPING_SIGN);
-            entries.accept(SEEPING_HANGING_SIGN);
-            entries.accept(SallowBlocks.SALLOW_LOG);
-            entries.accept(SallowBlocks.SALLOW_WOOD);
-            entries.accept(SallowBlocks.SALLOW_PLANKS);
-            entries.accept(SallowBlocks.STRIPPED_SALLOW_LOG);
-            entries.accept(SallowBlocks.STRIPPED_SALLOW_WOOD);
-            entries.accept(SallowBlocks.SALLOW_BUTTON);
-            entries.accept(SallowBlocks.SALLOW_DOOR);
-            entries.accept(SallowBlocks.SALLOW_FENCE);
-            entries.accept(SallowBlocks.SALLOW_FENCE_GATE);
-            entries.accept(SallowBlocks.SALLOW_PRESSURE_PLATE);
-            entries.accept(SallowBlocks.SALLOW_SLAB);
-            entries.accept(SallowBlocks.SALLOW_STAIRS);
-            entries.accept(SallowBlocks.SALLOW_TRAPDOOR);
-            entries.accept(SALLOW_SIGN);
-            entries.accept(SALLOW_HANGING_SIGN);
-            entries.accept(ModBlocks.IRON_BULB_BLOCK);
+            entries.insertAfter(Items.WARPED_BUTTON,
+            SeepingBlocks.SEEPING_LOG,
+            SeepingBlocks.SEEPING_WOOD,
+            SeepingBlocks.SEEPING_PLANKS,
+            SeepingBlocks.STRIPPED_SEEPING_LOG,
+            SeepingBlocks.STRIPPED_SEEPING_WOOD,
+            SeepingBlocks.SEEPING_BUTTON,
+            SeepingBlocks.SEEPING_DOOR,
+            SeepingBlocks.SEEPING_FENCE,
+            SeepingBlocks.SEEPING_FENCE_GATE,
+            SeepingBlocks.SEEPING_PRESSURE_PLATE,
+            SeepingBlocks.SEEPING_SLAB,
+            SeepingBlocks.SEEPING_STAIRS,
+            SeepingBlocks.SEEPING_TRAPDOOR,
+            SallowBlocks.SALLOW_LOG,
+            SallowBlocks.SALLOW_WOOD,
+            SallowBlocks.SALLOW_PLANKS,
+            SallowBlocks.STRIPPED_SALLOW_LOG,
+            SallowBlocks.STRIPPED_SALLOW_WOOD,
+            SallowBlocks.SALLOW_BUTTON,
+            SallowBlocks.SALLOW_DOOR,
+            SallowBlocks.SALLOW_FENCE,
+            SallowBlocks.SALLOW_FENCE_GATE,
+            SallowBlocks.SALLOW_PRESSURE_PLATE,
+            SallowBlocks.SALLOW_SLAB,
+            SallowBlocks.SALLOW_STAIRS,
+            SallowBlocks.SALLOW_TRAPDOOR);
+            entries.insertAfter(Items.HEAVY_WEIGHTED_PRESSURE_PLATE, ModBlocks.IRON_BULB_BLOCK);
         });
 
         Soulscorch.LOGGER.info("Registering Mod Items for " + Soulscorch.MOD_ID);
